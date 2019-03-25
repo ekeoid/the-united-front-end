@@ -1,0 +1,21 @@
+* {
+    color: green;
+}
+
+body {
+    margin: 1%;
+}
+
+.btn {
+    float: right;
+    background: greenyellow;
+    color: green;
+    border-color: green;
+}
+
+.btn:hover {
+    background-color: green;
+    color: greenyellow;
+    border-color: greenyellow;
+}
+ 
