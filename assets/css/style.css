@@ -18,6 +18,25 @@ body {
     color: greenyellow;
     border-color: greenyellow;
 }
+ 
+img {
+    max-width: 20px;
+    max-height: 20px;
+}
+
+p {
+    padding: 0% 5%;
+}
+
+.card {
+    margin: 3% 0%;
+}
+
+.recipe-image {
+    padding: 3%;
+    min-width: 200px;
+    min-height: 200px;
+}
 
 .footer {
     color: #666;
@@ -38,5 +57,4 @@ body {
     height: 30px;
     width: 30px;
     margin-right: 5px;
-
 }
