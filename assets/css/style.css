@@ -20,10 +20,10 @@ body {
 }
 
 .footer {
-    color: #444;
+    color: #666;
 }
 .footer li {
-    color: #444;
+    color: #666;
     list-style: none;
 }
 
@@ -31,5 +31,12 @@ body {
     color: #222;
     font-weight: 600;
     cursor: pointer;
+}
+
+.footer-icons {
+    /* display: inline-block; */
+    height: 30px;
+    width: 30px;
+    margin-right: 5px;
 
 }
