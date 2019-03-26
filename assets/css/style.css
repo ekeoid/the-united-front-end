@@ -18,4 +18,18 @@ body {
     color: greenyellow;
     border-color: greenyellow;
 }
- 
+
+.footer {
+    color: #444;
+}
+.footer li {
+    color: #444;
+    list-style: none;
+}
+
+.footer li:hover {
+    color: #222;
+    font-weight: 600;
+    cursor: pointer;
+
+}
