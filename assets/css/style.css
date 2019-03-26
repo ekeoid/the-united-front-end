@@ -31,8 +31,30 @@ p {
 .card {
     margin: 3% 0%;
 }
+
 .recipe-image {
     padding: 3%;
     min-width: 200px;
     min-height: 200px;
+}
+
+.footer {
+    color: #666;
+}
+.footer li {
+    color: #666;
+    list-style: none;
+}
+
+.footer li:hover {
+    color: #222;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.footer-icons {
+    /* display: inline-block; */
+    height: 30px;
+    width: 30px;
+    margin-right: 5px;
 }
