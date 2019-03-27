@@ -1,12 +1,19 @@
-* {
+/* * {
     color: green;
-}
+} */
 
 body {
-    margin: 1%;
+  margin: 0;
+  padding: 0;
+  /*height: 100vh;*/
+  /*min-height: 100vh;*/
 }
 
-.btn {
+#wrapper {
+    min-height: 100vh;
+    /*padding-bottom:300px;*/ /* this needs to be bigger than footer height*/
+}
+/* .btn {
     float: right;
     background: greenyellow;
     color: green;
@@ -17,8 +24,82 @@ body {
     background-color: green;
     color: greenyellow;
     border-color: greenyellow;
+} */
+
+.display-4, .lead {
+    color: white;
+    text-shadow: 7px 7px 6px black;
+    font-weight: bold;
 }
- 
+
+#main-jumbo {
+/*    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.65),
+                        rgba(250, 250, 250, 0.20),
+                        rgba(0, 0, 0, 0.65)),
+                        url("../images/diet-image.jpg");*/
+    background-image:
+        linear-gradient(rgba(250, 250, 250, 0.35),
+                        rgba(0, 0, 0, 0.50),
+                        rgba(250, 250, 250, 0.35)),
+                        url("../images/diet-image.jpg");
+    background-size: cover;
+    margin-bottom: 0;
+}
+
+#step-area {
+    padding: 0s;
+    margin: 0;
+    width: 100%;
+
+    /*background: linear-gradient(45deg,  rgba(245,222,179,.60) 95%, transparent 50%),
+                linear-gradient(135deg, rgba(169,134,83,.10) 47%, rgba(169,134,83,.30) 23%),
+                linear-gradient(45deg, transparent 37%, #dca 0, #dca 63%, transparent 50%) #753;
+    background-size: 25px 25px;*/
+    /*background-color: slate;*/
+    /*background-image: linear-gradient(90deg, rgba(255,255,255,.40) 70%, transparent 50%),
+                      linear-gradient(90deg, rgba(255,255,255,.40) 30%, transparent 80%),
+                      linear-gradient(90deg, rgba(255,255,255,.40) 95%, transparent 50%),
+                      linear-gradient(90deg, rgba(255,255,255,.40) 50%, transparent 100%);
+    background-size: 13px, 29px, 37px, 53px;*/
+
+    background-image:
+        linear-gradient(rgba(250, 250, 250, 0.95),
+                        rgba(250, 250, 250, 0.50),
+                        rgba(245, 222, 179, 0.35),
+                        rgba(245, 222, 179, 0.45),
+                        rgba(245, 222, 179, 0.50),
+                        rgba(245, 222, 179, 0.50)),
+                        url("../images/purty-wood.png");
+    /*background-color: #F5DEB3;*/
+    /*background-image: url("https://www.transparenttextures.com/patterns/purty-wood.png");*/
+
+
+}
+
+.step-icon {
+    height: 50px;
+    width: 50px;
+}
+
+#get-started {
+    background-color: #ea1753;
+    border: none;
+}
+
+#get-started:hover {
+    background-color: #b7244e;
+    border: none;
+}
+
+.step-card {
+    background: #e6ecf7;
+    background: 1px solid #e6ecf7;
+}
+
+/*green: #27f935 */
+/* dark red: #ea1753 */
+
 img {
     max-width: 20px;
     max-height: 20px;
@@ -39,22 +120,33 @@ p {
 }
 
 .footer {
-    color: #666;
+    clear: both;
+    /*margin-top: -300px;  negative value of footer height */
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    /* color: #666; */
 }
 .footer li {
-    color: #666;
+    /* color: #666; */
     list-style: none;
 }
 
 .footer li:hover {
-    color: #222;
-    font-weight: 600;
+    /* color: #222; */
+    font-weight: 500;
     cursor: pointer;
 }
 
-.footer-icons {
-    /* display: inline-block; */
+.footer li:hover > img {
+    transform: scale(1.2);
+}
+
+.footer li:before {
     height: 30px;
     width: 30px;
     margin-right: 5px;
 }
+
+
