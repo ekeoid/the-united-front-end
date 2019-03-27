@@ -6,115 +6,117 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>AutoChef</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- jQuery library link -->
-    <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-        crossorigin="anonymous"></script>
-    <!-- Bootstrap link -->
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
+</head>
+
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand px-2" href="index.html">AutoChef</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-2 mr-auto">
+                    <li class="nav-item mx-1">
+                        <a class="nav-link active" href="index.html#">Home</a>
+                    </li>
+                    <li class="nav-item mx-1">
+                        <a class="nav-link" href="#">My Pantry</a>
+                    </li>
+                    <li class="nav-item mx-1">
+                        <a class="nav-link" href="#">My Recipes</a>
+                    </li>
+                    <li class="nav-item mx-1">
+                        <a class="nav-link disabled" href="#">Recipe Search</a>
+                    </li>
+                    <li class="nav-item mx-1">
+                        <a class="nav-link" href="#">My Cart</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+
+        <div class="jumbotron jumbotron-fluid" id="main-jumbo">
+            <div class="container">
+                <h1 class="display-4 text-center">Cooking made simple</h1>
+                <p class="lead text-center">Find recipes based on ingredients you have in your pantry</p>
+                <div class="mol-md-4 text-center">
+                    <button type="button" class="btn btn-secondary btn-lg" id="get-started">Get Started</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="jumbotron jumbotron-fluid" id="step-area">
+            <div class="container">
+
+                <div class="card-deck mb-3 text-center">
+                    <div class="card mb-4">
+                        <div class="card-body step-card">
+                            <img src="assets/images/step-one-icon.png" class="step-icon">
+                            <h5>Enter your name</h5>
+                            <img src="assets/images/contact.png" class="main-icon">
+                        </div>
+                    </div>
+                    <div class="card mb-4">
+                        <div class="card-body step-card">
+                            <img src="assets/images/step-two-icon.png" class="step-icon">
+                            <h5>Add items to your pantry</h5>
+                            <img src="assets/images/ingredients.png" class="main-icon">
+                        </div>
+                    </div>
+                    <div class="card mb-4">
+                        <div class="card-body step-card">
+                            <img src="assets/images/step-three-icon.png" class="step-icon">
+                            <h5>Find recipes!</h5>
+                            <img src="assets/images/meal.png" class="main-icon">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div> <!-- #wrapper -->
+
+    <div class="footer-margin">
+        <footer class="card-footer border-secondary footer">
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-7">
+                    <ul>
+                        <li>About</li>
+                        <li>Our Mission</li>
+                        <li>Contact Us</li>
+                    </ul>
+                    <span>Copyright &copy; 2019</span>
+                </div>
+                <div class="col-md-2">
+                    <ul>
+                        <li><img src="https://img.icons8.com/windows/64/000000/github.png">Github</li>
+                        <li><img src="https://img.icons8.com/ios/50/000000/twitter-filled.png">Twitter</li>
+                        <li><img src="https://img.icons8.com/ios/100/000000/instagram-new-filled.png">Instagram</li>
+                        <li><img src="https://img.icons8.com/ios/50/000000/facebook-filled.png">Facebook</li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+    <!-- jQuery library link -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <!-- Bootstrap link -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
     <!-- FireBase link -->
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
-</head>
-
-<body>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand px-2" href="index.html">AutoChef</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-2 mr-auto">
-                <li class="nav-item mx-1">
-                    <a class="nav-link active" href="index.html#">Home</a>
-                </li>
-                <li class="nav-item mx-1">
-                    <a class="nav-link" href="#">My Pantry</a>
-                </li>
-                <li class="nav-item mx-1">
-                    <a class="nav-link" href="#">My Recipes</a>
-                </li>
-                <li class="nav-item mx-1">
-                    <a class="nav-link disabled" href="#">Recipe Search</a>
-                </li>
-                <li class="nav-item mx-1">
-                    <a class="nav-link" href="#">My Cart</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <center>
-        <div class="jumbotron jumbotron-fluid" id="main-jumbo">
-            <div class="container">
-                <h1 class="display-4">Cooking made simple</h1>
-                <p class="lead">Find recipes based on ingredients you have in your pantry</p>
-                <button type="button" class="btn btn-secondary btn-lg" id="get-started">Get Started</button>
-            </div>
-        </div>
-    </center>
-
-    <div class="container">
-        <div class="card-deck mb-3 text-center">
-            <div class="card mb-4">
-                <div class="card-body step-card">
-                    <img src="assets/images/step-one-icon.png" class="step-icon">
-                    <h5>Enter your name</h5>
-                    <img src="assets/images/contact.png" class="main-icon">
-                </div>
-            </div>
-            <div class="card mb-4">
-                <div class="card-body step-card">
-                    <img src="assets/images/step-two-icon.png" class="step-icon">
-                    <h5>Add items to your pantry</h5>
-                    <img src="assets/images/ingredients.png" class="main-icon">
-                </div>
-            </div>
-            <div class="card mb-4">
-                <div class="card-body step-card">
-                    <img src="assets/images/step-three-icon.png" class="step-icon">
-                    <h5>Find recipes!</h5>
-                    <img src="assets/images/meal.png" class="main-icon">
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-margin">
-            <footer class="card-footer border-secondary footer">
-                <div class="row">
-                    <div class="col-md-3"></div>
-                    <div class="col-md-7">
-                        <ul>
-                            <li>About</li>
-                            <li>Our Mission</li>
-                            <li>Contact Us</li>
-                        </ul>
-                        <span>Copyright &copy; 2019</span>
-                    </div>
-                    <div class="col-md-2">
-                        <ul>
-                            <li><img class="footer-icons"
-                                    src="https://img.icons8.com/windows/64/000000/github.png">Github</li>
-                            <li><img class="footer-icons"
-                                    src="https://img.icons8.com/ios/50/000000/twitter-filled.png">Twitter</li>
-                            <li><img class="footer-icons"
-                                    src="https://img.icons8.com/ios/100/000000/instagram-new-filled.png">Instagram</li>
-                            <li><img class="footer-icons"
-                                    src="https://img.icons8.com/ios/50/000000/facebook-filled.png">Facebook</li>
-                        </ul>
-                    </div>
-
-                </div>
-
-                <!-- <img src="https://img.icons8.com/ios/40/000000/facebook-filled.png"> -->
-                <!-- <img src="https://img.icons8.com/ios/40/000000/github-filled.png"> -->
-                <!-- <a href="https://icons8.com/icon/12599/github-filled"></a> -->
-            </footer>
-        </div>
 </body>
 
 </html>
