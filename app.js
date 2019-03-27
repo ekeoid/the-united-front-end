@@ -58,26 +58,26 @@ $("document").ready(function () {
   });
 });
 
-function getValueUsingClass() {
-  /* declare an checkbox array */
-  var pantyIngredients = [];
+// function getValueUsingClass() {
+//   /* declare an checkbox array */
+//   var pantyIngredients = [];
 
-  /* look for all checkboes that have a class 'chk' attached to it and check if it was checked */
-  $(".itm:checked").each(function () {
-    pantyIngredients.push($(this).val());
-  });
+//   /* look for all checkboes that have a class 'chk' attached to it and check if it was checked */
+//   $(".itm:checked").each(function () {
+//     pantyIngredients.push($(this).val());
+//   });
 
-  /* we join the array separated by the comma */
-  var selected;
-  selected = pantyIngredients.join(',');
-  console.log(pantyIngredients)
-  /* check if there is selected checkboxes, by default the length is 1 as it contains one single comma */
-  if (selected.length > 0) {
-    alert("You have selected " + selected);
-  } else {
-    alert("Please at least check one of the checkbox");
-  }
-}
+//   /* we join the array separated by the comma */
+//   var selected;
+//   selected = pantyIngredients.join(',');
+//   console.log(pantyIngredients)
+//   /* check if there is selected checkboxes, by default the length is 1 as it contains one single comma */
+//   if (selected.length > 0) {
+//     alert("You have selected " + selected);
+//   } else {
+//     alert("Please at least check one of the checkbox");
+//   }
+// }
 
 // function getValueUsingParentTag() {
 //   var chkArray = [];
