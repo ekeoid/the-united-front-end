@@ -100,14 +100,16 @@ body {
 /*green: #27f935 */
 /* dark red: #ea1753 */
 
-img {
+/*img {
     max-width: 20px;
     max-height: 20px;
 }
 
+/*
 p {
     padding: 0% 5%;
 }
+*/
 
 .card {
     margin: 3% 0%;
