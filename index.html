@@ -16,40 +16,33 @@
         crossorigin="anonymous"></script>
     <!-- FireBase link -->
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/style.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
 </head>
 
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="index.html">AutoChef</a>
+        <a class="navbar-brand px-2" href="index.html">AutoChef</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">My Pantry</a>
+            <ul class="navbar-nav ml-2 mr-auto">
+                <li class="nav-item mx-1">
+                    <a class="nav-link active" href="index.html#">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">My Recipes</a>
+                <li class="nav-item mx-1">
+                    <a class="nav-link" href="#">My Pantry</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item mx-1">
+                    <a class="nav-link" href="#">My Recipes</a>
+                </li>
+                <li class="nav-item mx-1">
                     <a class="nav-link disabled" href="#">Recipe Search</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">My Cart</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        About
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Our Mission</a>
-                        <a class="dropdown-item" href="#">Contact Us</a>
-                    </div>
+                <li class="nav-item mx-1">
+                    <a class="nav-link" href="#">My Cart</a>
                 </li>
             </ul>
         </div>
@@ -59,11 +52,12 @@
         <div class="jumbotron jumbotron-fluid" id="main-jumbo">
             <div class="container">
                 <h1 class="display-4">Cooking made simple</h1>
-                <p class="lead">We find recipes based on ingredients you have in your pantry</p>
+                <p class="lead">Find recipes based on ingredients you have in your pantry</p>
                 <button type="button" class="btn btn-secondary btn-lg" id="get-started">Get Started</button>
             </div>
         </div>
     </center>
+
     <div class="container">
         <div class="card-deck mb-3 text-center">
             <div class="card mb-4">
@@ -89,14 +83,14 @@
             </div>
         </div>
 
-        <div class="footer-margin fixed-bottom">
-            <footer class="card-footer footer">
+        <div class="footer-margin">
+            <footer class="card-footer border-secondary footer">
                 <div class="row">
                     <div class="col-md-3"></div>
                     <div class="col-md-7">
                         <ul>
                             <li>About</li>
-                            <li>Blog</li>
+                            <li>Our Mission</li>
                             <li>Contact Us</li>
                         </ul>
                         <span>Copyright &copy; 2019</span>
