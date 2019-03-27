@@ -145,7 +145,7 @@ p {
     transform: scale(1.2);
 }
 
-.footer li:before {
+.footer li > img {
     height: 30px;
     width: 30px;
     margin-right: 5px;
