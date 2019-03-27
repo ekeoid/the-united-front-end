@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>AutoChef</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
-    <script src="main.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/style.css">
+    <!-- <script src="main.js"></script> -->
     <!-- jQuery library link -->
     <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous"></script>
@@ -21,6 +21,7 @@
 </head>
 
 <body>
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="index.html">AutoChef</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -54,10 +55,45 @@
             </ul>
         </div>
     </nav>
-    <div class="footer-margin fixed-bottom">
+    <center>
+        <div class="jumbotron jumbotron-fluid" id="main-jumbo">
+            <div class="container">
+                <h1 class="display-4">Cooking made simple</h1>
+                <p class="lead">We find recipes based on ingredients you have in your pantry</p>
+                <button type="button" class="btn btn-secondary btn-lg" id="get-started">Get Started</button>
+            </div>
+        </div>
+    </center>
+    <div class="container">
+        <div class="card-deck mb-3 text-center">
+            <div class="card mb-4">
+                <div class="card-body step-card">
+                    <img src="assets/images/step-one-icon.png" class="step-icon">
+                    <h5>Enter your name</h5>
+                    <img src="assets/images/contact.png" class="main-icon">
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-body step-card">
+                    <img src="assets/images/step-two-icon.png" class="step-icon">
+                    <h5>Add items to your pantry</h5>
+                    <img src="assets/images/ingredients.png" class="main-icon">
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-body step-card">
+                    <img src="assets/images/step-three-icon.png" class="step-icon">
+                    <h5>Find recipes!</h5>
+                    <img src="assets/images/meal.png" class="main-icon">
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-margin fixed-bottom">
             <footer class="card-footer footer">
+                Copyright
             </footer>
-          </div>
+        </div>
 </body>
 
 </html>
