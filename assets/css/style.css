@@ -133,10 +133,13 @@ span.number {
 /*green: #27f935 */
 /* dark red: #ea1753 */
 
-/*img {
-    max-width: 20px;
-    max-height: 20px;
-}
+img {
+
+    display: block;
+    margin: auto;
+    max-width: 100px;
+    max-height: 100px;
+} 
 
 /*
 p {
@@ -147,12 +150,30 @@ p {
 .card {
     margin: 3% 0%;
 }
-
-.recipe-image {
-    padding: 3%;
-    min-width: 200px;
-    min-height: 200px;
+#recipeDisplay{
+    background: whitesmoke;
+    display: block;
+    
+   
 }
+.recipeName{
+    height: 72px;
+}
+#recView{
+    display: flex;
+    justify-content: center
+}
+ #recipe-card{
+     display: inline-block;
+     height: 250px;
+     width: 200px;
+    padding: 0px;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* border-style: solid;
+    border-width: 1px; */
+    margin: 3px
+ }
 
 .footer {
     clear: both;
