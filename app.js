@@ -29,7 +29,8 @@ $("document").ready(function () {
   clearInput = function () {
     $("#ingredient-name-input").val("");
     $("#amount-input").val("");
-    $("#ingredient-input").val("")
+    $("#ingredient-input").val("");
+
   };
 
   $("#add-ingredient-btn").on("click", function (event) {
@@ -54,7 +55,7 @@ $("document").ready(function () {
     // checkbox.attr("type", "checkbox");
 
 
-    $("tbody").append("<tr><td><button>" + deletePantryItem + "</button></td><td>" + "<input type='checkbox'/>" + "</td><td class='itm'>" + name + "</td><td>" + amt + " oz" + "</td></tr>")
+    $("tbody").append("<tr><td><button>" + deletePantryItem + "</button></td><td>" + "<input type='checkbox' class='ingred-check'/>" + "</td><td class='itm'>" + name + "</td><td>" + amt + " oz" + "</td></tr>")
   });
 });
 
@@ -129,7 +130,7 @@ $("document").ready(function () {
 $("#search-ingredients").on("click", function (event) {
   event.preventDefault();
   // Initial array of movies
-
+  // $("#recipeDisplay").empty();
 
   // displayMovieInfo function re-renders the HTML to display the appropriate content
 
@@ -149,7 +150,7 @@ $("#search-ingredients").on("click", function (event) {
     for (var i = 0; i < response.hits.length; i++) {
       console.log(response.hits[i].recipe);
 
-      var recipeDiv = $('<div>');
+      var recipeDiv = $('<div id="recipe-card">');
       var recipeImage = $('<img>');
       var recipeCaption = $('<div>');
       var recipeBtnDiv = $('<div>');
@@ -159,13 +160,14 @@ $("#search-ingredients").on("click", function (event) {
       recipeCaption.addClass('caption');
       recipeCaption.append($('<div>').text(eda.recipe.label).addClass('recipeName'));
       recipeCaption.addClass('text-center');
-      recipeBtnDiv.append($('<a>').append($('<button>').addClass('btn recipeBtn').text('Go to recipe')).attr('href', response.hits[i].recipe.url).attr('target', '_blank'));
+      recipeBtnDiv.append($('<a>').append($('<button>').addClass('btn btn-warning recipeBtn').text('Go to recipe')).attr('href', response.hits[i].recipe.url).attr('target', '_blank'));
       recipeCaption.append(recipeBtnDiv);
       recipeImage.attr('src', eda.recipe.image);
+      // recipeImage.addClass('mx-auto');
       recipeDiv.addClass('thumbnail col-lg-4 recipe');
       recipeDiv.append(recipeImage);
       recipeDiv.append(recipeCaption);
-      $("#recipe-view").append(recipeDiv);
+      $("#recipeDisplay").append(recipeDiv);
       // for (var j = 0; j < eda.recipe.ingredients.text.length; j++) {
       //     console.log(eda.recipe.ingredients.text[j].length)
       // recipeDiv.attr("ingredients", JSON.stringify(eda[i].recipe.ingredients));
@@ -174,7 +176,18 @@ $("#search-ingredients").on("click", function (event) {
     }
 
 
-
+    // function initGame() {
+    //     $('.gameArea').hide();
+    //     for (var i = 0; i < charSelect.length; i++) {
+    //       var charBtn = $('<button>');
+    //       charBtn.addClass('charCard');
+    //       charBtn.attr('name', charSelect[i].name);
+    //       charBtn.attr('health', charSelect[i].health);
+    //       charBtn.attr('attack', charSelect[i].attack);
+    //       charBtn.attr('counter', charSelect[i].counter);
+    //       charBtn.append("<p>" + charSelect[i].name + "</p><img src='" + charSelect[i].img + "'class='charImg'><br><p class='life'>Life: " + charSelect[i].health + "</p>");
+    //       $('#charSelect').append(charBtn);
+    //     }
 
 
 
