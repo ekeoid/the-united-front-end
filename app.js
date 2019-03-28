@@ -1,63 +1,95 @@
 var config = {
-  apiKey: "AIzaSyAYlkF8wl7rm-QDfZPqda4RsKcmoNxQxAY",
-  authDomain: "autochef-8f5c0.firebaseapp.com",
-  databaseURL: "https://autochef-8f5c0.firebaseio.com",
-  projectId: "autochef-8f5c0",
-  storageBucket: "autochef-8f5c0.appspot.com",
-  messagingSenderId: "482893096044"
+    apiKey: "AIzaSyAYlkF8wl7rm-QDfZPqda4RsKcmoNxQxAY",
+    authDomain: "autochef-8f5c0.firebaseapp.com",
+    databaseURL: "https://autochef-8f5c0.firebaseio.com",
+    projectId: "autochef-8f5c0",
+    storageBucket: "autochef-8f5c0.appspot.com",
+    messagingSenderId: "482893096044"
 };
 firebase.initializeApp(config);
 
-
 var database = firebase.database();
-//pantry manipulation
+
+// pantry manipulation
 $("document").ready(function () {
 
-  getInput = function () {
-    var ingName = $("#ingredient-name-input").val().trim();
-    var amount = $("#amount-input").val().trim();
+    getInput = function () {
+        var ingName = $("#ingredient-name-input").val().trim();
+        var amount = $("#amount-input").val().trim();
 
-    var newPantryItem = {
-      name: ingName,
-      amnt: amount
+        var newPantryItem = {
+            name: ingName,
+            amnt: amount
+        };
+
+        function clearInput() {
+            $("#ingredient-name-input").val("");
+            $("#amount-input").val("");
+            $("#ingredient-input").val("");
+        }
+
+        //validation input function possible here
+        database.ref().push(newPantryItem);
+        clearInput();
     };
 
-    database.ref().push(newPantryItem);
-    clearInput();
-  };
+    $("#add-ingredient-btn").on("click", function (event) {
+        event.preventDefault();
 
-  clearInput = function () {
-    $("#ingredient-name-input").val("");
-    $("#amount-input").val("");
-    $("#ingredient-input").val("");
+        getInput();
+        //this is a placeholder alert for testing
+        alert("item addded");
+    });
 
-  };
+    $("table").on("click", "button", function () {
+        $(this).closest("tr").remove();
+        //this is a placeholder alert for testing
+        alert("removed from pantry...");
+    });
 
-  $("#add-ingredient-btn").on("click", function (event) {
-    // event.preventDefault();
-    event.preventDefault();
-    getInput();
-    //this is a placeholder alert for testing
-    alert("item addded");
-  });
-
-  $("table").on("click", "button", function () {
-    $(this).closest("tr").remove();
-    //this is a placeholder alert for testing
-    alert("removed from pantry...");
-  });
-
-  database.ref().on("child_added", function (snapshot) {
-    var name = snapshot.val().name;
-    var amt = snapshot.val().amnt;
-    var deletePantryItem = "x";
-    // var checkbox = document.createElement("INPUT");
-    // checkbox.attr("type", "checkbox");
+    database.ref().on("child_added", function (snapshot) {
+        var name = snapshot.val().name;
+        var amt = snapshot.val().amnt;
+        var deletePantryItem = "x";
+        // var checkbox = document.createElement("INPUT");
+        // checkbox.attr("type", "checkbox");
 
 
-    $("tbody").append("<tr><td><button>" + deletePantryItem + "</button></td><td>" + "<input type='checkbox' class='ingred-check'/>" + "</td><td class='itm'>" + name + "</td><td>" + amt + " oz" + "</td></tr>")
-  });
+        $("tbody").append("<tr><td><button>" + deletePantryItem + "</button></td><td>" + "<input type='checkbox' class='ingred-check'/>" + "</td><td class='itm'>" + name + "</td><td>" + amt + " oz" + "</td></tr>")
+    });
+
+    // Find ingredient in Firebase and remove from Firebase 
+    // Need to work on code, if no ingredient is found. === returns null for snapshot
+    // snapshot.key doesnt work at location root
+    var ingredientToDelete = "sugar";
+
+    database.ref().orderByChild("name").equalTo(ingredientToDelete).on("value", function(snapshot) {
+        console.log(snapshot.val());
+        console.log(snapshot.key);
+        snapshot.forEach(function(data) {
+            console.log(data.key);
+            database.ref().child(data.key).remove();
+        });
+    });
+
+    // Check items in pantry to add to search
+    // type=checkbox must be wrapped in <form></form>
+    $("#pantryitem :checkbox").change(function() {
+        // this will contain a reference to the checkbox   
+        console.log("Hello");
+
+        if (this.checked) {
+            // the checkbox is now checked 
+            console.log(this);
+            console.log("hello");
+        } else {
+            // the checkbox is now no longer checked
+        }
+    });
+
+
 });
+
 
 // function getValueUsingClass() {
 //   /* declare an checkbox array */
@@ -128,69 +160,69 @@ $("document").ready(function () {
 // recipe search 
 
 $("#search-ingredients").on("click", function (event) {
-  event.preventDefault();
-  // Initial array of movies
-  // $("#recipeDisplay").empty();
+    event.preventDefault();
+    // Initial array of movies
+    // $("#recipeDisplay").empty();
 
-  // displayMovieInfo function re-renders the HTML to display the appropriate content
+    // displayMovieInfo function re-renders the HTML to display the appropriate content
 
-  var ingredientSearch = $("#ingredient-input").val();
-  var queryURL = "https://api.edamam.com/search?q=" + ingredientSearch + "&app_id=c43b2cf7&app_key=01c9ac7f0de42acc99556befcd0cf4c8&count=3"
-
-
-  //function displayRecipes() {
-  // Creating an AJAX call for the specific recipe button being clicked
-  $.ajax({
-    url: queryURL,
-    method: "GET"
-  }).then(function (response) {
-
-    console.log(response)
-    console.log(response.hits)
-    for (var i = 0; i < response.hits.length; i++) {
-      console.log(response.hits[i].recipe);
-
-      var recipeDiv = $('<div id="recipe-card">');
-      var recipeImage = $('<img>');
-      var recipeCaption = $('<div>');
-      var recipeBtnDiv = $('<div>');
-      var eda = (response.hits[i]);
-      console.log(eda.recipe.label);
-      // recipeDiv.attr("ingredients", eda.recipe.ingredientLines);
-      recipeCaption.addClass('caption');
-      recipeCaption.append($('<div>').text(eda.recipe.label).addClass('recipeName'));
-      recipeCaption.addClass('text-center');
-      recipeBtnDiv.append($('<a>').append($('<button>').addClass('btn btn-warning recipeBtn').text('Go to recipe')).attr('href', response.hits[i].recipe.url).attr('target', '_blank'));
-      recipeCaption.append(recipeBtnDiv);
-      recipeImage.attr('src', eda.recipe.image);
-      // recipeImage.addClass('mx-auto');
-      recipeDiv.addClass('thumbnail col-lg-4 recipe');
-      recipeDiv.append(recipeImage);
-      recipeDiv.append(recipeCaption);
-      $("#recipeDisplay").append(recipeDiv);
-      // for (var j = 0; j < eda.recipe.ingredients.text.length; j++) {
-      //     console.log(eda.recipe.ingredients.text[j].length)
-      // recipeDiv.attr("ingredients", JSON.stringify(eda[i].recipe.ingredients));
-      //}
-      clearInput();
-    }
+    var ingredientSearch = $("#ingredient-input").val();
+    var queryURL = "https://api.edamam.com/search?q=" + ingredientSearch + "&app_id=c43b2cf7&app_key=01c9ac7f0de42acc99556befcd0cf4c8&count=3"
 
 
-    // function initGame() {
-    //     $('.gameArea').hide();
-    //     for (var i = 0; i < charSelect.length; i++) {
-    //       var charBtn = $('<button>');
-    //       charBtn.addClass('charCard');
-    //       charBtn.attr('name', charSelect[i].name);
-    //       charBtn.attr('health', charSelect[i].health);
-    //       charBtn.attr('attack', charSelect[i].attack);
-    //       charBtn.attr('counter', charSelect[i].counter);
-    //       charBtn.append("<p>" + charSelect[i].name + "</p><img src='" + charSelect[i].img + "'class='charImg'><br><p class='life'>Life: " + charSelect[i].health + "</p>");
-    //       $('#charSelect').append(charBtn);
-    //     }
+    //function displayRecipes() {
+    // Creating an AJAX call for the specific recipe button being clicked
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function (response) {
+
+        console.log(response)
+        console.log(response.hits)
+        for (var i = 0; i < response.hits.length; i++) {
+            console.log(response.hits[i].recipe);
+
+            var recipeDiv = $('<div id="recipe-card">');
+            var recipeImage = $('<img>');
+            var recipeCaption = $('<div>');
+            var recipeBtnDiv = $('<div>');
+            var eda = (response.hits[i]);
+            console.log(eda.recipe.label);
+            // recipeDiv.attr("ingredients", eda.recipe.ingredientLines);
+            recipeCaption.addClass('caption');
+            recipeCaption.append($('<div>').text(eda.recipe.label).addClass('recipeName'));
+            recipeCaption.addClass('text-center');
+            recipeBtnDiv.append($('<a>').append($('<button>').addClass('btn btn-warning recipeBtn').text('Go to recipe')).attr('href', response.hits[i].recipe.url).attr('target', '_blank'));
+            recipeCaption.append(recipeBtnDiv);
+            recipeImage.attr('src', eda.recipe.image);
+            // recipeImage.addClass('mx-auto');
+            recipeDiv.addClass('thumbnail col-lg-4 recipe');
+            recipeDiv.append(recipeImage);
+            recipeDiv.append(recipeCaption);
+            $("#recipeDisplay").append(recipeDiv);
+            // for (var j = 0; j < eda.recipe.ingredients.text.length; j++) {
+            //     console.log(eda.recipe.ingredients.text[j].length)
+            // recipeDiv.attr("ingredients", JSON.stringify(eda[i].recipe.ingredients));
+            //}
+            clearInput();
+        }
+
+
+        // function initGame() {
+        //     $('.gameArea').hide();
+        //     for (var i = 0; i < charSelect.length; i++) {
+        //       var charBtn = $('<button>');
+        //       charBtn.addClass('charCard');
+        //       charBtn.attr('name', charSelect[i].name);
+        //       charBtn.attr('health', charSelect[i].health);
+        //       charBtn.attr('attack', charSelect[i].attack);
+        //       charBtn.attr('counter', charSelect[i].counter);
+        //       charBtn.append("<p>" + charSelect[i].name + "</p><img src='" + charSelect[i].img + "'class='charImg'><br><p class='life'>Life: " + charSelect[i].health + "</p>");
+        //       $('#charSelect').append(charBtn);
+        //     }
 
 
 
-  });
+    });
 });
 
