@@ -29,7 +29,6 @@ body {
 .display-4, .lead {
     color: white;
     text-shadow: 7px 7px 6px black;
-    font-weight: bold;
 }
 
 #main-jumbo {
@@ -45,6 +44,11 @@ body {
                         url("../images/diet-image.jpg");
     background-size: cover;
     margin-bottom: 0;
+}
+
+h5 {
+    color: salmon;
+    text-shadow: 2px 1px 3px #AAA;
 }
 
 #step-area {
@@ -84,6 +88,7 @@ body {
 
 #get-started {
     background-color: #ea1753;
+    /* background-color: salmon; */
     border: none;
 }
 
@@ -93,10 +98,38 @@ body {
 }
 
 .step-card {
-    background: #e6ecf7;
-    background: 1px solid #e6ecf7;
+    margin-top: 45px;
+
+    /* background: #e6ecf7; */
+    /* background: 1px solid #e6ecf7; */
 }
 
+span.number {
+    /* background: #5EA226; */
+    font-size: 0.8em;
+    background: #FA8072;
+    border-radius: 0.8em;
+    color: #ffffff;
+    display: inline-block;
+    line-height: 1.3em;
+    margin-right: 15px;
+    text-align: center;
+    width: 1.3em; 
+    text-shadow: 2px 1px 3px #AAA;
+  }
+  
+.navbar-brand > img {
+    /* background-size: cover; */
+    margin: -20px;
+    /* display: block; */
+    padding-left: 15px;
+    height: 40px;
+}
+.card-img {
+    width: 95%;
+    bottom: -100px;
+    /* height: 300px; */
+}
 /*green: #27f935 */
 /* dark red: #ea1753 */
 
