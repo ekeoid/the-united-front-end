@@ -133,6 +133,7 @@ span.number {
 /*green: #27f935 */
 /* dark red: #ea1753 */
 
+
 .btn > img {
     max-width: 30px;
     max-height: 30px;
@@ -143,12 +144,14 @@ span.number {
     padding-left: 100px;
 }
 
-/* img {
 
+/*
+img {
     display: block;
     margin: auto;
     max-width: 100px;
     max-height: 100px;
+
 }  */
 
 /*
