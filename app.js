@@ -1,37 +1,116 @@
 var config = {
-  apiKey: "AIzaSyAYlkF8wl7rm-QDfZPqda4RsKcmoNxQxAY",
-  authDomain: "autochef-8f5c0.firebaseapp.com",
-  databaseURL: "https://autochef-8f5c0.firebaseio.com",
-  projectId: "autochef-8f5c0",
-  storageBucket: "autochef-8f5c0.appspot.com",
-  messagingSenderId: "482893096044"
+    apiKey: "AIzaSyAYlkF8wl7rm-QDfZPqda4RsKcmoNxQxAY",
+    authDomain: "autochef-8f5c0.firebaseapp.com",
+    databaseURL: "https://autochef-8f5c0.firebaseio.com",
+    projectId: "autochef-8f5c0",
+    storageBucket: "autochef-8f5c0.appspot.com",
+    messagingSenderId: "482893096044"
 };
 firebase.initializeApp(config);
 
-
 var database = firebase.database();
-//pantry manipulation
+
+// pantry manipulation
 $("document").ready(function () {
 
-  getInput = function () {
-    var ingName = $("#ingredient-name-input").val().trim();
-    var amount = $("#amount-input").val().trim();
+    getInput = function () {
+        var ingName = $("#ingredient-name-input").val().trim();
+        var amount = $("#amount-input").val().trim();
 
-    var newPantryItem = {
-      name: ingName,
-      amnt: amount
+        var newPantryItem = {
+            name: ingName,
+            amnt: amount
+        };
+
+        function clearInput() {
+            $("#ingredient-name-input").val("");
+            $("#amount-input").val("");
+            $("#ingredient-input").val("");
+        }
+
+        //validation input function possible here
+        database.ref().push(newPantryItem);
+        clearInput();
     };
 
-    database.ref().push(newPantryItem);
-    clearInput();
-  };
+    $("#add-ingredient-btn").on("click", function (event) {
+        event.preventDefault();
 
-  clearInput = function () {
-    $("#ingredient-name-input").val("");
-    $("#amount-input").val("");
-    $("#ingredient-input").val("");
+        getInput();
+        //this is a placeholder alert for testing
+        alert("item addded");
+    });
 
-  };
+    $("table").on("click", "button", function () {
+        $(this).closest("tr").remove();
+        //this is a placeholder alert for testing
+        alert("removed from pantry...");
+    });
+
+    database.ref().on("child_added", function (snapshot) {
+      database.ref().on("child_added", function (snapshot) {
+        var name = snapshot.val().name;
+        var amt = snapshot.val().amnt;
+        var deletePantryItem = "x";
+        // var checkbox = document.createElement("INPUT");
+        // checkbox.attr("type", "checkbox");
+
+        var tag_tr = $("<tr>");
+        var tag_button = $("<button>");
+        var tag_input = $("<input>");
+
+        var tag_td_c1 = $("<td>"); // delete
+        var tag_td_c2 = $("<td>"); // checkbox
+        var tag_td_c3 = $("<td>"); // name
+        var tag_td_c4 = $("<td>"); // amount
+        
+        tag_td_c3.attr("class", "itm");
+        tag_input.attr("type", "checkbox");
+        tag_input.attr("class", "ingred-check");
+
+        tag_button.text(deletePantryItem);
+
+        tag_td_c1.append(tag_button);
+        tag_td_c2.append(tag_input);
+        tag_td_c3.text(name);
+        tag_td_c4.text(amt + " oz");
+
+        tag_tr.append(tag_td_c1, tag_td_c2, tag_td_c3, tag_td_c4);
+
+        $("tbody").append(tag_tr);
+
+        // $("tbody").append("<tr><td><button>" + deletePantryItem + "</button></td><td>" + "<input type='checkbox' class='ingred-check'/>" + "</td><td class='itm'>" + name + "</td><td>" + amt + " oz" + "</td></tr>");
+    });
+
+    // Find ingredient in Firebase and remove from Firebase 
+    // Need to work on code, if no ingredient is found. === returns null for snapshot
+    // snapshot.key doesnt work at location root
+    var ingredientToDelete = "sugar";
+
+    database.ref().orderByChild("name").equalTo(ingredientToDelete).on("value", function(snapshot) {
+        console.log(snapshot.val());
+        console.log(snapshot.key);
+        snapshot.forEach(function(data) {
+            console.log(data.key);
+            database.ref().child(data.key).remove();
+        });
+    });
+
+    // Check items in pantry to add to search
+    // type=checkbox must be wrapped in <form></form>
+    $("#pantryitem :checkbox").change(function() {
+        // this will contain a reference to the checkbox   
+        console.log("Hello");
+
+        if (this.checked) {
+            // the checkbox is now checked 
+            console.log(this);
+            console.log("hello");
+        } else {
+            // the checkbox is now no longer checked
+        }
+    });
+
 
   $("#add-ingredient-btn").on("click", function (event) {
     // event.preventDefault();
