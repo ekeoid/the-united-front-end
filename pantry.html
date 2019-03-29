@@ -1,58 +1,57 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>My Pantry</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" media="screen" href="pantry.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <!-- <script src="main.js"></script> -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
+
 </head>
-    <body>
+
+<body>
+    <div id="wrapper">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="index.html">AutoChef</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#">My Pantry</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#">My Recipes</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Recipe Search</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#">My Cart</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                About
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Our Mission</a>
-                                <a class="dropdown-item" href="#">Contact Us</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+            <a class="navbar-brand px-2" href="index.html">AutoChef</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <ul class="navbar-nav ml-2 mr-auto">
+                    <li class="nav-item mx-1">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item mx-1">
+                        <a class="nav-link active" href="pantry.html">My Pantry</a>
+                    </li>
+                    <li class="nav-item mx-1">
+                        <a class="nav-link" href="#">Favorite Recipes</a>
+                    </li>
+                    <li class="nav-item mx-1">
+                        <a class="nav-link" href="recipes.html">Recipe Search</a>
+                    </li>
+                    <li class="nav-item mx-1">
+                        <a class="nav-link" href="#">My Cart</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+
         <div class="row">
-            <div id="food-items" class="col-3">
+            <div id="food-items" class="col-md-3">
                 <div class="card card-header">Items</div>
                 <div class="card card-body">
                     <p>
                         <!-- the formatting is weird, so i just made this box hidden for formatting purposes -->
-                        <button style="display: none;" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#dairy-dropdown-section" aria-expanded="false" aria-controls="dairy-dropdown-section">
+                        <button style="display: none;" class="btn btn-primary" type="button" data-toggle="collapse"
+                            data-target="#dairy-dropdown-section" aria-expanded="false"
+                            aria-controls="dairy-dropdown-section">
                             Dairy
                         </button>
                         <div style="display: none;" class="collapse" id="dairy-dropdown-section">
@@ -70,7 +69,10 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#dairy-dropdown-section" aria-expanded="false" aria-controls="dairy-dropdown-section">
+                        <button class="btn btn-primary text-left category" type="button" data-toggle="collapse"
+                            data-target="#dairy-dropdown-section" aria-expanded="false"
+                            aria-controls="dairy-dropdown-section">
+                            <img src="assets/images/dairy-icon.png">
                             Dairy
                         </button>
                         <div class="collapse" id="dairy-dropdown-section">
@@ -89,8 +91,11 @@
                             </div>
                         </div>
                         <br>
-                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#vegetables-dropdown-section" aria-expanded="false" aria-controls="vegetables-dropdown-section">
-                                Vegetables
+                        <button class="btn btn-primary text-left category" type="button" data-toggle="collapse"
+                            data-target="#vegetables-dropdown-section" aria-expanded="false"
+                            aria-controls="vegetables-dropdown-section">
+                            <img src="assets/images/vegetables-icon.png">
+                            Vegetables
                         </button>
                         <div class="collapse" id="vegetables-dropdown-section">
                             <div class="card card-body">
@@ -108,8 +113,11 @@
                             </div>
                         </div>
                         <br>
-                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#fruits-dropdown-section" aria-expanded="false" aria-controls="fruits-dropdown-section">
-                            <i class="fa fa-lemon-o"></i>Fruits
+                        <button class="btn btn-primary text-left category" type="button" data-toggle="collapse"
+                            data-target="#fruits-dropdown-section" aria-expanded="false"
+                            aria-controls="fruits-dropdown-section">
+                            <img src="assets/images/fruits-icon.png">
+                            Fruits
                         </button>
                         <div class="collapse" id="fruits-dropdown-section">
                             <div class="card card-body">
@@ -127,8 +135,11 @@
                             </div>
                         </div>
                         <br>
-                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#meat-dropdown-section" aria-expanded="false" aria-controls="fruits-dropdown-section">
-                                Meat
+                        <button class="btn btn-primary text-left category" type="button" data-toggle="collapse"
+                            data-target="#meat-dropdown-section" aria-expanded="false"
+                            aria-controls="fruits-dropdown-section">
+                            <img src="assets/images/meat-icon.png">
+                            Meat
                         </button>
                         <div class="collapse" id="meat-dropdown-section">
                             <div class="card card-body">
@@ -146,7 +157,10 @@
                             </div>
                         </div>
                         <br>
-                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#grains-dropdown-section" aria-expanded="false" aria-controls="grains-dropdown-section">
+                        <button class="btn btn-primary text-left category" type="button" data-toggle="collapse"
+                            data-target="#grains-dropdown-section" aria-expanded="false"
+                            aria-controls="grains-dropdown-section">
+                            <img src="assets/images/grains-icon.png">
                             Grains
                         </button>
                         <div class="collapse" id="grains-dropdown-section">
@@ -165,8 +179,11 @@
                             </div>
                         </div>
                         <br>
-                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#spices-dropdown-section" aria-expanded="false" aria-controls="spices-dropdown-section">
-                                Spices
+                        <button class="btn btn-primary text-left category" type="button" data-toggle="collapse"
+                            data-target="#spices-dropdown-section" aria-expanded="false"
+                            aria-controls="spices-dropdown-section">
+                            <img src="assets/images/spices-icon.png">
+                            Spices
                         </button>
                         <div class="collapse" id="spices-dropdown-section">
                             <div class="card card-body">
@@ -184,8 +201,11 @@
                             </div>
                         </div>
                         <br>
-                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#sweeteners-dropdown-section" aria-expanded="false" aria-controls="sweeteners-dropdown-section">
-                                Sweeteners
+                        <button class="btn btn-primary text-left category" type="button" data-toggle="collapse"
+                            data-target="#sweeteners-dropdown-section" aria-expanded="false"
+                            aria-controls="sweeteners-dropdown-section">
+                            <img src="assets/images/sweeteners-icon.png">
+                            Sweeteners
                         </button>
                         <div class="collapse" id="sweeteners-dropdown-section">
                             <div class="card card-body">
@@ -203,8 +223,11 @@
                             </div>
                         </div>
                         <br>
-                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#fish-dropdown-section" aria-expanded="false" aria-controls="fish-dropdown-section">
-                                Fish
+                        <button class="btn btn-primary text-left category" type="button" data-toggle="collapse"
+                            data-target="#fish-dropdown-section" aria-expanded="false"
+                            aria-controls="fish-dropdown-section">
+                            <img src="assets/images/fish-icon.png">
+                            Fish
                         </button>
                         <div class="collapse" id="fish-dropdown-section">
                             <div class="card card-body">
@@ -222,8 +245,11 @@
                             </div>
                         </div>
                         <br>
-                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#alcohol-dropdown-section" aria-expanded="false" aria-controls="alcohol-dropdown-section">
-                                Alcohol
+                        <button class="btn btn-primary text-left category" type="button" data-toggle="collapse"
+                            data-target="#alcohol-dropdown-section" aria-expanded="false"
+                            aria-controls="alcohol-dropdown-section">
+                            <img src="assets/images/alcohol-icon.png">
+                            Alcohol
                         </button>
                         <div class="collapse" id="alcohol-dropdown-section">
                             <div class="card card-body">
@@ -241,8 +267,11 @@
                             </div>
                         </div>
                         <br>
-                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#condiments-dropdown-section" aria-expanded="false" aria-controls="condiments-dropdown-section">
-                                Condiments
+                        <button class="btn btn-primary text-left category" type="button" data-toggle="collapse"
+                            data-target="#condiments-dropdown-section" aria-expanded="false"
+                            aria-controls="condiments-dropdown-section">
+                            <img src="assets/images/condiments-icon.png">
+                            Condiments
                         </button>
                         <div class="collapse" id="condiments-dropdown-section">
                             <div class="card card-body">
@@ -260,27 +289,33 @@
                             </div>
                         </div>
                         <br>
-                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#beverages-dropdown-section" aria-expanded="false" aria-controls="beverages-dropdown-section">
-                                Beverages
+                        <button class="btn btn-primary text-left category" type="button" data-toggle="collapse"
+                            data-target="#beverages-dropdown-section" aria-expanded="false"
+                            aria-controls="beverages-dropdown-section">
+                            <img src="assets/images/beverages-icon.png">
+                            Beverages
                         </button>
                         <div class="collapse" id="beverages-dropdown-section">
                             <div class="card card-body">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="" id="beveragesEntry1">
                                     <label class="form-check-label" for="beveragesEntry1">
-                                        Alcohol Entry 1
+                                        Beverages Entry 1
                                     </label>
                                     <br>
                                     <input class="form-check-input" type="checkbox" value="" id="beveragesEntry2">
                                     <label class="form-check-label" for="beveragesEntry2">
-                                        Alcohol Entry 2
+                                        Beverages Entry 2
                                     </label>
                                 </div>
                             </div>
                         </div>
                         <br>
-                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#snacks-dropdown-section" aria-expanded="false" aria-controls="snacks-dropdown-section">
-                                Snacks
+                        <button class="btn btn-primary text-left category" type="button" data-toggle="collapse"
+                            data-target="#snacks-dropdown-section" aria-expanded="false"
+                            aria-controls="snacks-dropdown-section">
+                            <img src="assets/images/snacks-icon.png">
+                            Snacks
                         </button>
                         <div class="collapse" id="snacks-dropdown-section">
                             <div class="card card-body">
@@ -298,8 +333,10 @@
                             </div>
                         </div>
                         <br>
-                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#miscellaneous-dropdown-section" aria-expanded="false" aria-controls="miscellaneous-dropdown-section">
-                                Miscellaneous
+                        <button class="btn btn-primary text-left category" type="button" data-toggle="collapse"
+                            data-target="#miscellaneous-dropdown-section" aria-expanded="false"
+                            aria-controls="miscellaneous-dropdown-section">
+                            Miscellaneous
                         </button>
                         <div class="collapse" id="miscellaneous-dropdown-section">
                             <div class="card card-body">
@@ -319,23 +356,107 @@
                     </p>
                 </div>
             </div>
+
             <div class="col-9">
-                <div class="card card-header">Pantry</div>
-                <div class="card card-body">
-                    <div class="col-3">
-                        <input class="form-check-input" type="checkbox" value="" id="pantryEntry1">
-                        <label class="form-check-label" for="pantryEntry1">
-                            Pantry Entry 1
-                        </label>
-                        <br>
-                        <input class="form-check-input" type="checkbox" value="" id="pantryEntry2">
-                        <label class="form-check-label" for="pantryEntry2">
-                            Pantry Entry 2
-                        </label>
+                <div class="card mb-4">
+                    <div class="card-header">Pantry</div>
+                    <div class="card card-body">
+                        <table class="table table-sm table-hover" id='pantry-table'>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Delete Item</th>
+                                    <th scope="col">Search</th>
+                                    <th scope="col">Pantry Item</th>
+                                    <th scope="col">Amount</th>
+                                </tr>
+                            </thead>
+                            <form id="pantryitem">
+                                <tbody>
+                                </tbody>
+                            </form>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- Entry Form  -->
+                        <div class="card mb-4">
+                            <div class="card-header">Add Ingredients To Your Pantry</div>
+                            <div class="card-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="ingredient-name-input">Ingredient Name</label>
+                                        <input class="form-control" id="ingredient-name-input"
+                                            placeholder="add a single ingredient" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="amount-input">Amount(optional) </label>
+                                        <input class="form-control" id="amount-input"
+                                            placeholder="how much you have on hand(oz (approx)" type="text">
+                                    </div>
+                                </form>
+                                <button class="btn btn-success btn-submit" id="add-ingredient-btn">add to
+                                    pantry</button>
+                            </div>
+                            <div class="container">
+                                <h1>Recipe Search</h1>
+                                <br>
+                                <div id="recipe-view">Recipe Choices</div>
+                                <br>
+                            </div>
+
+                            <form id="ingredient-form">
+                                <h6>Add Ingredients one at a time or multiple items separated by
+                                    a comma</h6>
+                                <label for="ingredient-input"></label>
+                                <input type="text" id="ingredient-input" placeholder="kale, chicken etc.">
+                                <br>
+
+                                <input class=btn-success id="search-ingredients" type="submit"
+                                    value="Search for recipes">
+                            </form>
+                            <br>
+
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <button class="btn btn-submit">Find Recipes</button>
-    </body>
+
+        <div class="footer-margin">
+            <footer class="card-footer border-secondary footer">
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-7">
+                        <ul>
+                            <li>About</li>
+                            <li>Our Mission</li>
+                            <li>Contact Us</li>
+                        </ul>
+                        <span>Copyright &copy; 2019</span>
+                    </div>
+                    <div class="col-md-2">
+                        <ul>
+                            <li><img src="https://img.icons8.com/windows/64/000000/github.png">Github</li>
+                            <li><img src="https://img.icons8.com/ios/50/000000/twitter-filled.png">Twitter</li>
+                            <li><img src="https://img.icons8.com/ios/100/000000/instagram-new-filled.png">Instagram</li>
+                            <li><img src="https://img.icons8.com/ios/50/000000/facebook-filled.png">Facebook</li>
+                        </ul>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <!-- jQuery library link -->
+        <script src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+        <!-- Bootstrap link -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+        <!-- FireBase link -->
+        <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+        <script src="app.js"></script>
+</body>
+
 </html>
