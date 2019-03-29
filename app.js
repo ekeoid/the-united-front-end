@@ -57,73 +57,21 @@ $("document").ready(function () {
 
     $("tbody").append("<tr><td><button>" + deletePantryItem + "</button></td><td>" + "<input type='checkbox' class='ingred-check'/>" + "</td><td class='itm'>" + name + "</td><td>" + amt + " oz" + "</td></tr>")
   });
+  // Check items in pantry to add to search
+  var itemsToSearch = [];
+  $(document).on("click", ".ingred-check", function () {
+    var item = $(this).parent().parent().find(".itm").text();
+
+    if (this.checked) {
+      itemsToSearch.push(item);
+    } else {
+      itemsToSearch.splice(itemsToSearch.indexOf(item), 1);
+    }
+    console.log(itemsToSearch);
+  });
 });
 
-// function getValueUsingClass() {
-//   /* declare an checkbox array */
-//   var pantyIngredients = [];
 
-//   /* look for all checkboes that have a class 'chk' attached to it and check if it was checked */
-//   $(".itm:checked").each(function () {
-//     pantyIngredients.push($(this).val());
-//   });
-
-//   /* we join the array separated by the comma */
-//   var selected;
-//   selected = pantyIngredients.join(',');
-//   console.log(pantyIngredients)
-//   /* check if there is selected checkboxes, by default the length is 1 as it contains one single comma */
-//   if (selected.length > 0) {
-//     alert("You have selected " + selected);
-//   } else {
-//     alert("Please at least check one of the checkbox");
-//   }
-// }
-
-// function getValueUsingParentTag() {
-//   var chkArray = [];
-
-//   /* look for all checkboes that have a parent id called 'checkboxlist' attached to it and check if it was checked */
-//   $("#pantry-table input:checked").each(function () {
-//     chkArray.push($(this).val());
-//   });
-
-//   /* we join the array separated by the comma */
-//   var selected;
-//   selected = chkArray.join(',');
-
-//   /* check if there is selected checkboxes, by default the length is 1 as it contains one single comma */
-//   if (selected.length > 0) {
-//     alert("You have selected " + selected);
-//   } else {
-//     alert("Please at least check one of the checkbox");
-//   }
-// }
-// $("input:checkbox[name=type]:checked").each(function () {
-//   pantyIngredients.push($(this).val());
-//   console.log(pantryIngredients)
-// });
-// var checkboxes = document.getElementsByName('name');
-// var vals = "";
-// for (var i = 0, n = checkboxes.length; i < n; i++) {
-//   if (checkboxes[i].checked) {
-//     vals += "," + checkboxes[i].value;
-//   }
-// }
-// if (vals) vals = vals.substring(1);
-//   $('.checkbox').click(function () {
-//     var checkedValues = $('input:checkbox:checked').map(function () {
-//       return this.value;
-//     }).get().join(',');
-//     $("#ingredient-input").append(checkedValues);
-//   });
-// });
-//pantry ingredient search
-// $('.checkbox').click(function () {
-//   var checkedValues = $('input:checkbox:checked').map(function () {
-//     return this.value;
-//   }).get().join(',');
-//   $("#ingredient-input").append(checkedValues);
 
 // recipe search 
 
@@ -132,7 +80,6 @@ $("#search-ingredients").on("click", function (event) {
   // Initial array of movies
   // $("#recipeDisplay").empty();
 
-  // displayMovieInfo function re-renders the HTML to display the appropriate content
 
   var ingredientSearch = $("#ingredient-input").val();
   var queryURL = "https://api.edamam.com/search?q=" + ingredientSearch + "&app_id=c43b2cf7&app_key=01c9ac7f0de42acc99556befcd0cf4c8&count=3"
@@ -176,18 +123,7 @@ $("#search-ingredients").on("click", function (event) {
     }
 
 
-    // function initGame() {
-    //     $('.gameArea').hide();
-    //     for (var i = 0; i < charSelect.length; i++) {
-    //       var charBtn = $('<button>');
-    //       charBtn.addClass('charCard');
-    //       charBtn.attr('name', charSelect[i].name);
-    //       charBtn.attr('health', charSelect[i].health);
-    //       charBtn.attr('attack', charSelect[i].attack);
-    //       charBtn.attr('counter', charSelect[i].counter);
-    //       charBtn.append("<p>" + charSelect[i].name + "</p><img src='" + charSelect[i].img + "'class='charImg'><br><p class='life'>Life: " + charSelect[i].health + "</p>");
-    //       $('#charSelect').append(charBtn);
-    //     }
+
 
 
 

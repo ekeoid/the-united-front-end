@@ -30,10 +30,10 @@
                         <a class="nav-link" href="pantry.html">My Pantry</a>
                     </li>
                     <li class="nav-item mx-1">
-                        <a class="nav-link active" href="recipes.html">My Recipes</a>
+                        <a class="nav-link " href="#">Favorite Recipes</a>
                     </li>
                     <li class="nav-item mx-1">
-                        <a class="nav-link disabled" href="#">Recipe Search</a>
+                        <a class="nav-link active" href="recipes.html">Recipe Search</a>
                     </li>
                     <li class="nav-item mx-1">
                         <a class="nav-link" href="#">My Cart</a>
@@ -42,140 +42,86 @@
             </div>
         </nav>
 
-        <div class="row">
-            <div id="food-items" class="col-3">
-                <div class="card card-header">Pantry</div>
-                <div class="card card-body">
-                    <p>
-                        <input class="form-check-input" type="checkbox" value="" id="pantryEntry1">
-                        <label class="form-check-label" for="pantryEntry1">
-                            Pantry Entry 1
-                        </label>
-                        <br>
-                        <input class="form-check-input" type="checkbox" value="" id="pantryEntry2">
-                        <label class="form-check-label" for="pantryEntry2">
-                            Pantry Entry 2
-                        </label>
-                    </p>
-                </div>
-                <br>
-                <button class="btn btn-submit">Find Recipes</button>
-            </div>
-
-            <div class="col-9">
-                <div class="card card-header">Recipes</div>
-                <div class="card card-body" id="recipeDisplay">
-                    <!-- this is just in case we want to split up recipes based on these categories -->
-                    <div class="row">
-                        <div class="col-md-4">
-                            <h5>Recipes Only from Pantry</h5>
-                        </div>
-                        <div class="col-md-4">
-                            <h5>Recipes Partially from Pantry</h5>
-                        </div>
-                        <div class="col-md-4">
-                            <h5>Random Recipes</h5>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="card recipe" style="width: 18rem;">
-                                <img class="recipe-image" src="assets/images/recipe-stock-image.jpeg"
-                                    class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the
-                                        bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card" style="width: 18rem;">
-                                <img class="recipe-image" src="assets/images/recipe-stock-image.jpeg"
-                                    class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the
-                                        bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card" style="width: 18rem;">
-                                <img class="recipe-image" src="assets/images/recipe-stock-image.jpeg"
-                                    class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the
-                                        bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div class="container">
-            <h1>Recipe Search</h1>
-            <br>
-            <div id="recipe-view">Recipe Choices</div>
-            <br>
-        </div>
-
-        <form id="ingredient-form">
-            <h6>Add Ingredients one at a time or multiple items separated by
-                a comma</h6>
-            <label for="ingredient-input"></label>
-            <input type="text" id="ingredient-input" placeholder="kale, chicken etc.">
-            <br>
-
-            <input id="search-ingredients" type="submit" value="Search for recipes">
-        </form>
-        <br>
-    </div>
-
-    <div class="footer-margin">
-        <footer class="card-footer border-secondary footer">
             <div class="row">
-                <div class="col-md-3"></div>
-                <div class="col-md-7">
-                    <ul>
-                        <li>About</li>
-                        <li>Our Mission</li>
-                        <li>Contact Us</li>
-                    </ul>
-                    <span>Copyright &copy; 2019</span>
+                <div id="food-items" class="col-3">
+                    <div class="card card-header">Pantry</div>
+                    <div class="card card-body">
+                        <p>
+                            <input class="form-check-input" type="checkbox" value="" id="pantryEntry1">
+                            <label class="form-check-label" for="pantryEntry1">
+                                Pantry Entry 1
+                            </label>
+                            <br>
+                            <input class="form-check-input" type="checkbox" value="" id="pantryEntry2">
+                            <label class="form-check-label" for="pantryEntry2">
+                                Pantry Entry 2
+                            </label>
+                        </p>
+                    </div>
                 </div>
-                <div class="col-md-2">
-                    <ul>
-                        <li><img src="https://img.icons8.com/windows/64/000000/github.png">Github</li>
-                        <li><img src="https://img.icons8.com/ios/50/000000/twitter-filled.png">Twitter</li>
-                        <li><img src="https://img.icons8.com/ios/100/000000/instagram-new-filled.png">Instagram</li>
-                        <li><img src="https://img.icons8.com/ios/50/000000/facebook-filled.png">Facebook</li>
-                    </ul>
+
+                <div class="col-9">
+                    <div class="card card-header">Recipes</div>
+                    <div class="container" id="recView">
+                        <div class="card card-body" id="recipeDisplay">
+                        </div>
+                    </div>
                 </div>
             </div>
-        </footer>
-    </div>
+
+            <div class="container">
+                <h1>Recipe Search</h1>
+
+                <br>
+                <form id="ingredient-form">
+                    <h6>Add Ingredients one at a time or multiple items separated by
+                        a comma</h6>
+                    <label for="ingredient-input"></label>
+                    <input type="text" id="ingredient-input" placeholder="kale, chicken etc.">
+                    <br>
+
+                    <input id="search-ingredients" class="btn btn-success" type="submit" value="Search for recipes">
+                </form>
+                <br>
+            </div>
+        </div>
+
+        <div class="footer-margin">
+            <footer class="card-footer border-secondary footer">
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-7">
+                        <ul>
+                            <li>About</li>
+                            <li>Our Mission</li>
+                            <li>Contact Us</li>
+                        </ul>
+                        <span>Copyright &copy; 2019</span>
+                    </div>
+                    <div class="col-md-2">
+                        <ul>
+                            <li><img src="https://img.icons8.com/windows/64/000000/github.png">Github</li>
+                            <li><img src="https://img.icons8.com/ios/50/000000/twitter-filled.png">Twitter</li>
+                            <li><img src="https://img.icons8.com/ios/100/000000/instagram-new-filled.png">Instagram</li>
+                            <li><img src="https://img.icons8.com/ios/50/000000/facebook-filled.png">Facebook</li>
+                        </ul>
+                    </div>
+                </div>
+            </footer>
+        </div>
 
 
-    <!-- jQuery library link -->
-    <script src="https://code.jquery.com/jquery-3.3.1.js"
-        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-    <!-- Bootstrap link -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-    <!-- FireBase link -->
-    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
-    <script src="app.js"></script>
+        <!-- jQuery library link -->
+        <script src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+        <!-- Bootstrap link -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+        <!-- FireBase link -->
+        <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+        <script src="app.js"></script>
 </body>
 
 </html>
