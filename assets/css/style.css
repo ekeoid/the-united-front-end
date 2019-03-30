@@ -29,7 +29,6 @@ body {
 .display-4, .lead {
     color: white;
     text-shadow: 7px 7px 6px black;
-    font-weight: bold;
 }
 
 #main-jumbo {
@@ -45,6 +44,11 @@ body {
                         url("../images/diet-image.jpg");
     background-size: cover;
     margin-bottom: 0;
+}
+
+h5 {
+    color: salmon;
+    text-shadow: 2px 1px 3px #AAA;
 }
 
 #step-area {
@@ -84,6 +88,7 @@ body {
 
 #get-started {
     background-color: #ea1753;
+    /* background-color: salmon; */
     border: none;
 }
 
@@ -93,17 +98,60 @@ body {
 }
 
 .step-card {
-    background: #e6ecf7;
-    background: 1px solid #e6ecf7;
+    margin-top: 45px;
+
+    /* background: #e6ecf7; */
+    /* background: 1px solid #e6ecf7; */
 }
 
+span.number {
+    /* background: #5EA226; */
+    font-size: 0.8em;
+    background: #FA8072;
+    border-radius: 0.8em;
+    color: #ffffff;
+    display: inline-block;
+    line-height: 1.3em;
+    margin-right: 15px;
+    text-align: center;
+    width: 1.3em; 
+    text-shadow: 2px 1px 3px #AAA;
+  }
+  
+.navbar-brand > img {
+    /* background-size: cover; */
+    margin: -20px;
+    /* display: block; */
+    padding-left: 15px;
+    height: 40px;
+}
+.card-img {
+    width: 95%;
+    bottom: -100px;
+    /* height: 300px; */
+}
 /*green: #27f935 */
 /* dark red: #ea1753 */
 
-/*img {
-    max-width: 20px;
-    max-height: 20px;
+
+.btn > img {
+    max-width: 30px;
+    max-height: 30px;
+    text-align: left !important;
 }
+
+.category {
+    padding-left: 100px;
+}
+
+
+
+img {
+    display: block;
+    margin: auto;
+    max-width: 125px;
+    max-height: 125px;
+} 
 
 /*
 p {
@@ -114,12 +162,34 @@ p {
 .card {
     margin: 3% 0%;
 }
-
-.recipe-image {
-    padding: 3%;
-    min-width: 200px;
-    min-height: 200px;
+#recipeDisplay{
+    
+    background: whitesmoke;
+    display: block;
+    
+   
 }
+.recipeName{
+    height: 65px;
+}
+#recView{
+    
+    display: flex;
+    justify-content: center
+}
+ #recipe-card{
+    background: orange;
+     display: inline-block;
+     height: 250px;
+     width: 200px;
+    padding-top: 20px;
+    /* display: flex; */
+    /* justify-content: center; */
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px 5px 10px 5px;
+    margin: 3px
+ }
 
 .footer {
     clear: both;
