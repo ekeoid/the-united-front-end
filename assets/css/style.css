@@ -274,3 +274,10 @@ li{
     cursor: pointer;
 }
 
+#submitName {
+    color: white;
+    background: rgb(173, 225, 47);
+    border-radius: 5px;
+    border: 1px solid rgb(173, 225, 47);
+}
+
