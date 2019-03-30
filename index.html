@@ -14,7 +14,7 @@
 
 <body>
     <div id="wrapper">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+        <nav class="navbar navbar-expand-lg navbar-light">
             <a class="navbar-brand px-2" href="index.html"><img src="assets/images/autochef-logo-cropped.png"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,15 +29,15 @@
                     <li class="nav-item mx-1">
                         <a class="nav-link" href="pantry.html">My Pantry</a>
                     </li>
-                    <li class="nav-item mx-1">
+                    <!-- <li class="nav-item mx-1">
                         <a class="nav-link" href="#">Favorite Recipes</a>
-                    </li>
+                    </li> -->
                     <li class="nav-item mx-1">
                         <a class="nav-link" href="recipes.html">Recipe Search</a>
                     </li>
-                    <li class="nav-item mx-1">
+                    <!-- <li class="nav-item mx-1">
                         <a class="nav-link" href="#">My Cart</a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </nav>
@@ -48,7 +48,9 @@
                 <h1 class="display-4 text-center">Cooking made simple</h1>
                 <p class="lead text-center">Find recipes based on ingredients you have in your pantry</p>
                 <div class="mol-md-4 text-center">
-                    <button type="button" class="btn btn-secondary btn-lg" id="get-started">Get Started</button>
+                    <button type="button" class="btn btn-secondary btn-lg" id="get-started"><a id="get-started"
+                            href="pantry.html">Get
+                            Started</a></button>
                 </div>
             </div>
         </div>
@@ -94,26 +96,36 @@
     <div class="footer-margin">
         <footer class="card-footer border-secondary footer">
             <div class="row">
-                <div class="col-md-3"></div>
-                <div class="col-md-7">
+                <div class="col-6">
                     <ul>
                         <li>About</li>
                         <li>Our Mission</li>
                         <li>Contact Us</li>
                     </ul>
-                    <span>Copyright &copy; 2019</span>
                 </div>
-                <div class="col-md-2">
+
+                <div class="col-6">
                     <ul>
-                        <li><img src="https://img.icons8.com/windows/64/000000/github.png">Github</li>
-                        <li><img src="https://img.icons8.com/ios/50/000000/twitter-filled.png">Twitter</li>
-                        <li><img src="https://img.icons8.com/ios/100/000000/instagram-new-filled.png">Instagram</li>
-                        <li><img src="https://img.icons8.com/ios/50/000000/facebook-filled.png">Facebook</li>
+                        <li><img id="git" src="https://img.icons8.com/windows/64/000000/github.png">Github
+                        </li>
+                        <li><img id="twitter" src="https://img.icons8.com/ios/50/000000/twitter-filled.png">Twitter
+                        </li>
+                        <li><img id="insta"
+                                src="https://img.icons8.com/ios/100/000000/instagram-new-filled.png">Instagram
+                        </li>
+                        <li><img id="facebook" src="https://img.icons8.com/ios/50/000000/facebook-filled.png">Facebook
+                        </li>
                     </ul>
+
+                </div>
+                <div class="col-12">
+                    <span>Copyright &copy; 2019</span>
                 </div>
             </div>
         </footer>
     </div>
+
+
 
     <!-- jQuery library link -->
     <script src="https://code.jquery.com/jquery-3.3.1.js"

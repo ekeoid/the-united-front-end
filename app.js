@@ -209,6 +209,7 @@ $("#search-ingredients").on("click", function (event) {
       recipeBtnDiv.append($('<a>').append($('<button>').addClass('btn btn-success recipeBtn').text('Go to recipe')).attr('href', response.hits[i].recipe.url).attr('target', '_blank'));
       recipeCaption.append(recipeBtnDiv);
       recipeImage.attr('src', eda.recipe.image);
+      recipeImage.addClass("recImg")
       // recipeImage.addClass('mx-auto');
       recipeDiv.addClass('thumbnail col-lg-4 recipe');
       recipeDiv.append(recipeImage);
