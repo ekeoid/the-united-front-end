@@ -56,13 +56,13 @@
         crossorigin="anonymous"></script>
     <!-- FireBase link -->
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
-    <!-- <script src="app.js"></script> -->
+    <script src="app.js"></script>
 
     <script>
         /* Testing Code */
         class Categories {
             constructor() {
-                // {name: "", ingredients: "" , link: ""}
+                // {name: "", ingredients: [""] , link: ""}
                 this.category = [];
             }
 
@@ -135,6 +135,7 @@
 
 
         var list = new Categories();
+
         list.addCategory("Dairy, Vegetables, Fruits, Meat, Grains, Spices, Sweeteners, Fish, Alcohol, Condiments, Beverages, Snacks, Miscellaneous");
 
         list.addLink("Dairy", "assets/images/dairy-icon.png");
@@ -161,7 +162,7 @@
         list.addIngredient("Alcohol", "white wine, beer, red wine");
         list.addIngredient("Condiments", "");
         list.addIngredient("Beverages", "");
-        list.addIngredient("Snacks", ""); 
+        list.addIngredient("Snacks", "");
         list.addIngredient("Miscellaneous", "");
 
         for (var x = 0; x < list.getCategories.length; x++) {
@@ -175,7 +176,7 @@
             var tag_div_3 = $("<div>");
 
             tag_img.attr("src", link);
-            tag_img.css("display","inline-block");
+            tag_img.css("display", "inline-block");
             tag_img.css("text-align", "left");
             tag_img.css("padding-right", "10px");
 
@@ -186,7 +187,7 @@
             tag_button.attr("aria-expanded", "false");
             tag_button.attr("aria-controls", category + "-dropdown-section");
             tag_button.css("padding-left", "25%");
-            
+
             tag_button.append(tag_img, category);
 
             tag_div_1.attr("class", "collapse");
@@ -198,11 +199,11 @@
 
             for (var y = 0; y < list.getIngredients(x).length; y++) {
                 var ingredient = list.getIngredients(x)[y];
-                            
+
                 var tag_input = $("<input>");
                 var tag_label = $("<label>");
-                
-                tag_input.attr("class", "form-check-input");
+
+                tag_input.attr("class", "form-check-input ingredient");
                 tag_input.attr("type", "checkbox");
 
                 tag_label.attr("class", "form-check-label");
@@ -216,6 +217,31 @@
 
             $("#food-items > .card-body").append(tag_button, tag_div_1, "</br>");
         }
+
+
+        // var item = $(this).parent().parent().find(".itm").text();
+        $(".itm:contains('" + "feta" + "')").text("");
+
+        database.ref().on("child_removed", function (snapshot) {
+            
+        });
+
+        
+
+        $(document).on("change", ".ingredient :checkbox", function () {
+            // this will contain a reference to the checkbox   
+            console.log("Hello");
+
+            if (this.checked) {
+                // the checkbox is now checked 
+                console.log(this);
+                console.log("hello");
+            } else {
+                // the checkbox is now no longer checked
+            }
+        });
+
+        // console.log($("tbody > tr").find(".itm").text(""));
 
     </script>
 </body>
