@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My Pantry</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
+
+</head>
+
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand px-2" href="index.html">AutoChef</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <ul class="navbar-nav ml-2 mr-auto">
+                    <li class="nav-item mx-1">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item mx-1">
+                        <a class="nav-link active" href="pantry.html">My Pantry</a>
+                    </li>
+                    <li class="nav-item mx-1">
+                        <a class="nav-link" href="recipes.html">My Recipes</a>
+                    </li>
+                    <li class="nav-item mx-1">
+                        <a class="nav-link disabled" href="#">Recipe Search</a>
+                    </li>
+                    <li class="nav-item mx-1">
+                        <a class="nav-link" href="#">My Cart</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+
+        <div class="row">
+            <div id="food-items" class="col-md-3">
+                <div class="card card-header">Items</div>
+                <div class="card card-body">
+                    <p>
+                        <!-- the formatting is weird, so i just made this box hidden for formatting purposes -->
+                        <button style="display: none;" class="btn btn-primary" type="button" data-toggle="collapse"
+                            data-target="#dairy-dropdown-section" aria-expanded="false"
+                            aria-controls="dairy-dropdown-section">
+                            Dairy
+                        </button>
+                        <div style="display: none;" class="collapse" id="dairy-dropdown-section">
+                            <div class="card card-body">
+                                <div class="form-check">
+                                    <!-- <input class="form-check-input" type="checkbox" value="" id="dairyEntry1">
+                                    <label class="form-check-label" for="dairyEntry1">
+                                        Dairy Entry 1
+                                    </label>
+                                    <br>
+                                    <input class="form-check-input" type="checkbox" value="" id="dairyEntry2">
+                                    <label class="form-check-label" for="dairyEntry2">
+                                        Dairy Entry 2
+                                    </label> -->
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" type="button" data-toggle="collapse"
+                            data-target="#dairy-dropdown-section" aria-expanded="false"
+                            aria-controls="dairy-dropdown-section">
+                            <img src="assets/images/dairy-icon.png">
+                            Dairy
+                        </button>
+                        <div class="collapse" id="dairy-dropdown-section">
+                            <div class="card card-body">
+                                <div class="form-check">
+                                    <!-- <input class="form-check-input" type="checkbox" value="" id="dairyEntry1">
+                                    <label class="form-check-label" for="dairyEntry1">
+                                        Dairy Entry 1
+                                    </label>
+                                    <br>
+                                    <input class="form-check-input" type="checkbox" value="" id="dairyEntry2">
+                                    <label class="form-check-label" for="dairyEntry2">
+                                        Dairy Entry 2
+                                    </label> -->
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <button class="btn btn-primary" type="button" data-toggle="collapse"
+                            data-target="#vegetables-dropdown-section" aria-expanded="false"
+                            aria-controls="vegetables-dropdown-section">
+                            <img src="assets/images/vegetables-icon.png">
+                            Vegetables
+                        </button>
+                        <div class="collapse" id="vegetables-dropdown-section">
+                            <div class="card card-body">
+                                <div class="form-check">
+                                    <!-- <input class="form-check-input" type="checkbox" value="" id="vegetablesEntry1">
+                                    <label class="form-check-label" for="vegetablesEntry1">
+                                        Vegetables Entry 1
+                                    </label>
+                                    <br>
+                                    <input class="form-check-input" type="checkbox" value="" id="vegetablesEntry2">
+                                    <label class="form-check-label" for="vegetablesEntry2">
+                                        Vegetables Entry 2
+                                    </label> -->
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <button class="btn btn-primary" type="button" data-toggle="collapse"
+                            data-target="#fruits-dropdown-section" aria-expanded="false"
+                            aria-controls="fruits-dropdown-section">
+                            <img src="assets/images/fruits-icon.png">
+                            Fruits
+                        </button>
+                        <div class="collapse" id="fruits-dropdown-section">
+                            <div class="card card-body">
+                                <div class="form-check">
+                                    <!-- <input class="form-check-input" type="checkbox" value="" id="fruitsEntry1">
+                                    <label class="form-check-label" for="fruitsEntry1">
+                                        Fruits Entry 1
+                                    </label>
+                                    <br>
+                                    <input class="form-check-input" type="checkbox" value="" id="fruitsEntry2">
+                                    <label class="form-check-label" for="fruitsEntry2">
+                                        Fruits Entry 2
+                                    </label> -->
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <button class="btn btn-primary" type="button" data-toggle="collapse"
+                            data-target="#meat-dropdown-section" aria-expanded="false"
+                            aria-controls="fruits-dropdown-section">
+                            <img src="assets/images/meat-icon.png">
+                            Meat
+                        </button>
+                        <div class="collapse" id="meat-dropdown-section">
+                            <div class="card card-body">
+                                <div class="form-check">
+                                    <!-- <input class="form-check-input" type="checkbox" value="" id="meatsEntry1">
+                                    <label class="form-check-label" for="meatsEntry1">
+                                        Meats Entry 1
+                                    </label>
+                                    <br>
+                                    <input class="form-check-input" type="checkbox" value="" id="meatsEntry1">
+                                    <label class="form-check-label" for="meatsEntry1">
+                                        Meats Entry 2
+                                    </label> -->
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <button class="btn btn-primary" type="button" data-toggle="collapse"
+                            data-target="#grains-dropdown-section" aria-expanded="false"
+                            aria-controls="grains-dropdown-section">
+                            <img src="assets/images/grains-icon.png">
+                            Grains
+                        </button>
+                        <div class="collapse" id="grains-dropdown-section">
+                            <div class="card card-body">
+                                <div class="form-check">
+                                    <!-- <input class="form-check-input" type="checkbox" value="" id="grainsEntry1">
+                                    <label class="form-check-label" for="grainsEntry1">
+                                        Grains Entry 1
+                                    </label>
+                                    <br>
+                                    <input class="form-check-input" type="checkbox" value="" id="grainsEntry2">
+                                    <label class="form-check-label" for="grainsEntry2">
+                                        Grains Entry 2
+                                    </label> -->
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <button class="btn btn-primary" type="button" data-toggle="collapse"
+                            data-target="#spices-dropdown-section" aria-expanded="false"
+                            aria-controls="spices-dropdown-section">
+                            <img src="assets/images/spices-icon.png">
+                            Spices
+                        </button>
+                        <div class="collapse" id="spices-dropdown-section">
+                            <div class="card card-body">
+                                <div class="form-check">
+                                    <!-- <input class="form-check-input" type="checkbox" value="" id="spicesEntry1">
+                                    <label class="form-check-label" for="spicesEntry1">
+                                        Spices Entry 1
+                                    </label>
+                                    <br>
+                                    <input class="form-check-input" type="checkbox" value="" id="spicesEntry2">
+                                    <label class="form-check-label" for="spicesEntry2">
+                                        Spices Entry 2
+                                    </label> -->
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <button class="btn btn-primary" type="button" data-toggle="collapse"
+                            data-target="#sweeteners-dropdown-section" aria-expanded="false"
+                            aria-controls="sweeteners-dropdown-section">
+                            <img src="assets/images/sweeteners-icon.png">
+                            Sweeteners
+                        </button>
+                        <div class="collapse" id="sweeteners-dropdown-section">
+                            <div class="card card-body">
+                                <div class="form-check">
+                                    <!-- <input class="form-check-input" type="checkbox" value="" id="sweetenersEntry1">
+                                    <label class="form-check-label" for="sweetenersEntry1">
+                                        Sweeteners Entry 1
+                                    </label>
+                                    <br>
+                                    <input class="form-check-input" type="checkbox" value="" id="sweetenersEntry2">
+                                    <label class="form-check-label" for="sweetenersEntry2">
+                                        Sweeteners Entry 2
+                                    </label> -->
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <button class="btn btn-primary" type="button" data-toggle="collapse"
+                            data-target="#fish-dropdown-section" aria-expanded="false"
+                            aria-controls="fish-dropdown-section">
+                            <img src="assets/images/fish-icon.png">
+                            Fish
+                        </button>
+                        <div class="collapse" id="fish-dropdown-section">
+                            <div class="card card-body">
+                                <div class="form-check">
+                                    <!-- <input class="form-check-input" type="checkbox" value="" id="fishEntry1">
+                                    <label class="form-check-label" for="fishEntry1">
+                                        Fish Entry 1
+                                    </label>
+                                    <br>
+                                    <input class="form-check-input" type="checkbox" value="" id="fishEntry2">
+                                    <label class="form-check-label" for="fishEntry2">
+                                        Fish Entry 2
+                                    </label> -->
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <button class="btn btn-primary" type="button" data-toggle="collapse"
+                            data-target="#alcohol-dropdown-section" aria-expanded="false"
+                            aria-controls="alcohol-dropdown-section">
+                            <img src="assets/images/alcohol-icon.png">
+                            Alcohol
+                        </button>
+                        <div class="collapse" id="alcohol-dropdown-section">
+                            <div class="card card-body">
+                                <div class="form-check">
+                                    <!-- <input class="form-check-input" type="checkbox" value="" id="alcoholEntry1">
+                                    <label class="form-check-label" for="alcoholEntry1">
+                                        Alcohol Entry 1
+                                    </label>
+                                    <br>
+                                    <input class="form-check-input" type="checkbox" value="" id="alcoholEntry2">
+                                    <label class="form-check-label" for="alcoholEntry2">
+                                        Alcohol Entry 2
+                                    </label> -->
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <button class="btn btn-primary" type="button" data-toggle="collapse"
+                            data-target="#condiments-dropdown-section" aria-expanded="false"
+                            aria-controls="condiments-dropdown-section">
+                            <img src="assets/images/condiments-icon.png">
+                            Condiments
+                        </button>
+                        <div class="collapse" id="condiments-dropdown-section">
+                            <div class="card card-body">
+                                <div class="form-check">
+                                    <!-- <input class="form-check-input" type="checkbox" value="" id="condimentsEntry1">
+                                    <label class="form-check-label" for="condimentsEntry1">
+                                        Condiments Entry 1
+                                    </label>
+                                    <br>
+                                    <input class="form-check-input" type="checkbox" value="" id="condimentsEntry2">
+                                    <label class="form-check-label" for="condimentsEntry2">
+                                        Condiments Entry 2
+                                    </label> -->
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <button class="btn btn-primary" type="button" data-toggle="collapse"
+                            data-target="#beverages-dropdown-section" aria-expanded="false"
+                            aria-controls="beverages-dropdown-section">
+                            <img src="assets/images/beverages-icon.png">
+                            Beverages
+                        </button>
+                        <div class="collapse" id="beverages-dropdown-section">
+                            <div class="card card-body">
+                                <div class="form-check">
+                                    <!-- <input class="form-check-input" type="checkbox" value="" id="beveragesEntry1">
+                                    <label class="form-check-label" for="beveragesEntry1">
+                                        Beverages Entry 1
+                                    </label>
+                                    <br>
+                                    <input class="form-check-input" type="checkbox" value="" id="beveragesEntry2">
+                                    <label class="form-check-label" for="beveragesEntry2">
+                                        Beverages Entry 2
+                                    </label> -->
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <button class="btn btn-primary" type="button" data-toggle="collapse"
+                            data-target="#snacks-dropdown-section" aria-expanded="false"
+                            aria-controls="snacks-dropdown-section">
+                            <img src="assets/images/snacks-icon.png">
+                            Snacks
+                        </button>
+                        <div class="collapse" id="snacks-dropdown-section">
+                            <div class="card card-body">
+                                <div class="form-check">
+                                    <!-- <input class="form-check-input" type="checkbox" value="" id="snacksEntry1">
+                                    <label class="form-check-label" for="snacksEntry1">
+                                        Snacks Entry 1
+                                    </label>
+                                    <br>
+                                    <input class="form-check-input" type="checkbox" value="" id="snacksEntry2">
+                                    <label class="form-check-label" for="snacksEntry2">
+                                        Snacks Entry 2
+                                    </label> -->
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <button class="btn btn-primary" type="button" data-toggle="collapse"
+                            data-target="#custom-dropdown-section" aria-expanded="false"
+                            aria-controls="custom-dropdown-section">
+                            Custom
+                        </button>
+                        <div class="collapse" id="custom-dropdown-section">
+                            <div class="card card-body">
+                                <div class="form-check">
+                                    <div class="form-group">
+                                        <label for="addCustomItem">Add Custom Item:</label>
+                                        <input type="email" class="form-control" id="addCustomItem" placeholder="custom item">
+                                        <button id="button-add-custom-item" class="btn">Add</button>
+                                    </div>
+                                    <!-- <input class="form-check-input" type="checkbox" value="" id="miscellaneousEntry1">
+                                    <label class="form-check-label" for="miscellaneousEntry1">
+                                        Miscellaneous Entry 1
+                                    </label>
+                                    <br>
+                                    <input class="form-check-input" type="checkbox" value="" id="miscellaneousEntry2">
+                                    <label class="form-check-label" for="miscellaneousEntry2">
+                                        Miscellaneous Entry 2
+                                    </label> -->
+                                </div>
+                            </div>
+                        </div>
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-9">
+                <div class="card mb-4">
+                    <div class="card-header">Pantry</div>
+                    <div class="card card-body">
+                        <table class="table table-sm table-hover" id='pantry-table'>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Delete Item</th>
+                                    <th scope="col">Search</th>
+                                    <th scope="col">Pantry Item</th>
+                                    <th scope="col">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- Entry Form  -->
+                        <div class="card mb-4">
+                            <div class="card-header">Add Ingredients To Your Pantry</div>
+                            <div class="card-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="ingredient-name-input">Ingredient Name</label>
+                                        <input class="form-control" id="ingredient-name-input"
+                                            placeholder="add a single ingredient" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="amount-input">Amount(optional) </label>
+                                        <input class="form-control" id="amount-input"
+                                            placeholder="how much you have on hand(oz (approx)" type="text">
+                                    </div>
+                                </form>
+                                <button class="btn btn-submit" id="add-ingredient-btn">add to pantry</button>
+                            </div>
+                            <div class="container">
+                                <h1>Recipe Search</h1>
+                                <br>
+                                <div id="recipe-view">Recipe Choices</div>
+                                <br>
+                            </div>
+
+                            <form id="ingredient-form">
+                                <h6>Add Ingredients one at a time or multiple items separated by
+                                    a comma</h6>
+                                <label for="ingredient-input"></label>
+                                <input type="text" id="ingredient-input" placeholder="kale, chicken etc.">
+                                <br>
+
+                                <input id="search-ingredients" type="submit" value="Search for recipes">
+                            </form>
+                            <br>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-margin">
+            <footer class="card-footer border-secondary footer">
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-7">
+                        <ul>
+                            <li>About</li>
+                            <li>Our Mission</li>
+                            <li>Contact Us</li>
+                        </ul>
+                        <span>Copyright &copy; 2019</span>
+                    </div>
+                    <div class="col-md-2">
+                        <ul>
+                            <li><img src="https://img.icons8.com/windows/64/000000/github.png">Github</li>
+                            <li><img src="https://img.icons8.com/ios/50/000000/twitter-filled.png">Twitter</li>
+                            <li><img src="https://img.icons8.com/ios/100/000000/instagram-new-filled.png">Instagram</li>
+                            <li><img src="https://img.icons8.com/ios/50/000000/facebook-filled.png">Facebook</li>
+                        </ul>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+
+        <!-- jQuery library link -->
+        <script src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+        <!-- Bootstrap link -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+        <!-- FireBase link -->
+        <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+        <script src="assets/javascript/javascript.js"></script>
+        <script src="app.js"></script>
+</body>
+
+</html>
