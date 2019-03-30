@@ -225,7 +225,7 @@ li{
   padding-top: 1px;
   padding-bottom: 2px;
   border-top: 8px #4aaaa5 solid;
-  position: fixed;
+  /* position: fixed; */
   height: 80px;
   left: 0;
   bottom: 0;
