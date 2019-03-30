@@ -20,6 +20,7 @@ body {
     /* background: whitesmoke; */
     /*padding-bottom:300px;*/ /* this needs to be bigger than footer height*/
 }
+
 .btn {
     background: greenyellow;
     color: green;
@@ -34,8 +35,8 @@ body {
 
 .card-header{
     background-color: greenyellow;
-    
 }
+
 .display-4, .lead {
     color: white;
     text-shadow: 7px 7px 6px black;
@@ -165,12 +166,6 @@ nav{
     max-height: 125px;
 } 
 
-/*
-p {
-    padding: 0% 5%;
-}
-*/
-
 .card {
     margin: 3% 0%;
 }
@@ -197,8 +192,6 @@ p {
     height: 250px;
     width: 200px;
     padding-top: 20px;
-    /* display: flex; */
-    /* justify-content: center; */
     border-style: solid;
     border-width: 1px;
     border-radius: 10px 5px 10px 5px;
@@ -212,6 +205,7 @@ p {
     height: 25px;
     width: 25px;
 }
+
 li{
     font-size: 20px;
     margin: 8px;
@@ -258,6 +252,25 @@ li{
     height: 30px;
     width: 30px;
     margin-right: 5px;
-}   */
 
-/* negative value of footer height */
+}
+*/
+
+#missing {
+    color: grey;  
+}
+
+#mapsLink {
+    background: salmon;
+    color: white;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    border: 1px solid salmon;
+}
+
+#mapsLink:hover {
+    background: lightsalmon;
+    border: 1px solid lightsalmon;
+    cursor: pointer;
+}
+
