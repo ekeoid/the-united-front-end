@@ -216,3 +216,21 @@ p {
     margin-right: 5px;
 }
 
+#missing {
+    color: grey;  
+}
+
+#mapsLink {
+    background: salmon;
+    color: white;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    border: 1px solid salmon;
+}
+
+#mapsLink:hover {
+    background: lightsalmon;
+    border: 1px solid lightsalmon;
+    cursor: pointer;
+}
+
