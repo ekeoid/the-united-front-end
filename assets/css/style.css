@@ -137,12 +137,12 @@ span.number {
 .btn > img {
     max-width: 30px;
     max-height: 30px;
-    text-align: left !important;
+    /* text-align: left !important; */
 }
-
+/* 
 .category {
     padding-left: 100px;
-}
+} */
 
 
 
