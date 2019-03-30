@@ -239,59 +239,68 @@
                                     <div class="form-check">
 
                                     </div>
+                                    <!-- <input class="form-check-input" type="checkbox" value="" id="miscellaneousEntry1">
+                                    <label class="form-check-label" for="miscellaneousEntry1">
+                                        Miscellaneous Entry 1
+                                    </label>
+                                    <br>
+                                    <input class="form-check-input" type="checkbox" value="" id="miscellaneousEntry2">
+                                    <label class="form-check-label" for="miscellaneousEntry2">
+                                        Miscellaneous Entry 2
+                                    </label> -->
                                 </div>
                             </div>
-                        </p>
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-9">
+                <div class="card mb-4">
+                    <div class="card-header">Pantry</div>
+                    <div class="card card-body">
+                        <table class="table table-sm table-hover" id='pantry-table'>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Delete Item</th>
+                                    <th scope="col">Search</th>
+                                    <th scope="col">Pantry Item</th>
+                                    <th scope="col">Amount</th>
+                                </tr>
+                            </thead>
+                            <form id="pantryitem">
+                                <tbody>
+                                </tbody>
+                            </form>
+                        </table>
                     </div>
                 </div>
-
-                <div class="col-9">
-                    <div class="card mb-4">
-                        <div class="card-header">Pantry</div>
-                        <div class="card card-body">
-                            <table class="table table-sm table-hover" id='pantry-table'>
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Delete Item</th>
-                                        <th scope="col">Search</th>
-                                        <th scope="col">Pantry Item</th>
-                                        <th scope="col">Amount</th>
-                                    </tr>
-                                </thead>
-                                <form id="pantryitem">
-                                    <tbody>
-                                    </tbody>
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- Entry Form  -->
+                        <div class="card mb-4">
+                            <div class="card-header">Add Ingredients To Your Pantry</div>
+                            <div class="card-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="ingredient-name-input">Ingredient Name</label>
+                                        <input class="form-control" id="ingredient-name-input"
+                                            placeholder="add a single ingredient" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="amount-input">Amount(optional) </label>
+                                        <input class="form-control" id="amount-input"
+                                            placeholder="how much you have on hand(oz (approx)" type="text">
+                                    </div>
                                 </form>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <!-- Entry Form  -->
-                            <div class="card mb-4">
-                                <div class="card-header">Add Ingredients To Your Pantry</div>
-                                <div class="card-body">
-                                    <form>
-                                        <div class="form-group">
-                                            <label for="ingredient-name-input">Ingredient Name</label>
-                                            <input class="form-control" id="ingredient-name-input"
-                                                placeholder="add a single ingredient" type="text">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="amount-input">Amount(optional) </label>
-                                            <input class="form-control" id="amount-input"
-                                                placeholder="how much you have on hand(oz (approx)" type="text">
-                                        </div>
-                                    </form>
-                                    <button class="btn btn-success btn-submit" id="add-ingredient-btn">add to
-                                        pantry</button>
-                                </div>
+                                <button class="btn btn-success btn-submit" id="add-ingredient-btn">add to
+                                    pantry</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
         <div class="footer-margin">
             <footer class="card-footer border-secondary footer">
@@ -336,11 +345,12 @@
         crossorigin="anonymous"></script>
     <!-- FireBase link -->
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
-    <script src="app.js"></script>
     <!-- modal -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script src="assets/javascript/app.js"></script>
 </body>
 
 </html>
