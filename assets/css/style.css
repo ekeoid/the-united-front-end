@@ -26,6 +26,7 @@ body {
     border-color: greenyellow;
 } */
 
+
 .display-4, .lead {
     color: white;
     text-shadow: 7px 7px 6px black;
@@ -160,9 +161,6 @@ p {
 }
 */
 
-.card {
-    margin: 3% 0%;
-}
 #recipeDisplay{
     background: whitesmoke;
     display: block;
@@ -217,5 +215,4 @@ p {
     width: 30px;
     margin-right: 5px;
 }
-
 

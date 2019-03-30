@@ -207,5 +207,9 @@ $("#search-ingredients").on("click", function (event) {
 
 
 	});
+	$( 'div.resultsTable a[href^="http://"]' )
+	
 });
+
+
 
