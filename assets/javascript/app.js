@@ -158,20 +158,12 @@ function printList() { // function to list all category / ingredient HTML
 
         for (var y = 0; y < list.getIngredients(x).length; y++) {
             var ingredient = list.getIngredients(x)[y];
-            var pantryList = JSON.parse(localStorage.getItem("ingredientSearch"));
 
             var tag_input = $("<input>");
             var tag_label = $("<label>");
 
             tag_input.attr("class", "form-check-input ingredient");
             tag_input.attr("type", "checkbox");
-
-            if (pantryList != null) {
-                if (pantryList.indexOf(ingredient) != -1) {
-                    console.log("Found " + ingredient);
-                    tag_input.prop("checked", true);
-                }
-            }
 
             tag_label.attr("class", "form-check-label");
             tag_label.text(ingredient);
@@ -187,6 +179,7 @@ function printList() { // function to list all category / ingredient HTML
 }
 
 var list = new Categories();
+localStorage.setItem("inPantryList", null);
 loadList();
 printList();
 
@@ -252,11 +245,15 @@ $("document").ready(function () {
         // snapshot.key doesnt work at location root
 
         var firebaseKey = $(this).parent().parent().find("input").attr("firebaseKey");
+        var name = $(this).closest("tr").find(".itm").text();
+
         console.log("FB Key: " + firebaseKey);
         if (firebaseKey) {
-            console.log($(this).closest("tr").find(".itm").text() + " is removed @ key: " + firebaseKey);
+            console.log(name + " is removed @ key: " + firebaseKey);
             database.ref(firebaseKey).remove();
         }
+        
+        $(".ingredient ~ label:contains(" + name + ")").prev().prop("checked", false);
 
         //var ingredientToDelete = $(this).closest("tr").find(".itm").text();
         // database.ref().orderByChild("name").equalTo(ingredientToDelete).on("value", function (snapshot) {
@@ -307,7 +304,21 @@ $("document").ready(function () {
                     tag_input.prop("checked", true);
                 }
             }
+
+            var categoryList = JSON.parse(localStorage.getItem("inPantryList"));
+            if (categoryList == null) {
+                categoryList = [];
+            }
+            categoryList.push(name);
+            localStorage.setItem("inPantryList", JSON.stringify(categoryList));
+
+            console.log("Cat: " + categoryList);
+            if (categoryList.indexOf(name) != -1) {
+                console.log("Found Cat: " + name);
+                $(".ingredient ~ label:contains(" + name + ")").prev().prop("checked", true);
+            }
             
+
 
             tag_button.attr("class", "close");
             tag_button.attr("aria-label", "Close");
