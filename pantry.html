@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
-    
+
 
 </head>
 
@@ -46,6 +46,9 @@
         <div class="container">
             <div class="row">
                 <div id="food-items" class="col-md-3">
+                    <h6 id="missing">Missing ingredients?</h6>
+                    <button id="mapsLink" onclick=" window.open('maps.html', '_blank');">Find supermarkets
+                        near you</button>
                     <div class="card card-header">Items</div>
                     <div class="card card-body categories-card">
 
@@ -54,9 +57,6 @@
                     </div>
                 </div>
                 <div class="col 9">
-                    <h6 id="missing">Missing ingredients?</h6>
-                    <button id="mapsLink" onclick=" window.open('maps.html', '_blank');">Find supermarkets
-                        near you</button>
                     <div class="card mb-4">
                         <div class="card-header">Pantry</div>
                         <div class="card card-body">
@@ -74,10 +74,11 @@
                                     </tbody>
                                 </form>
                             </table>
-                            
+
                         </div>
                         <div class="row ml-auto mr-3 mb-3">
-                                <button class="btn btn-success btn-submit" id="search-pantry-btn" type="button" onclick="location.href='recipes.html'" value="Go to Recipes">Search for Recipes</button>
+                            <button class="btn btn-success btn-submit" id="search-pantry-btn" type="button"
+                                onclick="location.href='recipes.html'" value="Go to Recipes">Search for Recipes</button>
                         </div>
                     </div>
                 </div>
@@ -99,7 +100,8 @@
                                             placeholder="how much you have (oz)?" type="text">
                                     </div>
                                 </form>
-                                <button class="btn btn-success btn-submit" id="add-ingredient-btn">Add to Your Pantry</button>
+                                <button class="btn btn-success btn-submit" id="add-ingredient-btn">Add to Your
+                                    Pantry</button>
                             </div>
                         </div>
                     </div>
@@ -134,11 +136,12 @@
 
                 </div>
                 <div class="col-12">
-                    <span>Copyright &copy; 2019</span>
+                    <center>
+                        <span>Copyright &copy; 2019</span>
+                    </center>
                 </div>
             </div>
         </footer>
-    </div>
     </div>
     <br><br><br><br>
     <!-- jQuery library link -->

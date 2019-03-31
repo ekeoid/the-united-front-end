@@ -45,21 +45,21 @@
         <div class="container">
             <div class="row">
                 <div id="food-items" class="col-3">
+                    <h6 id="missing">Missing ingredients?</h6>
+                    <button id="mapsLink" onclick=" window.open('maps.html', '_blank');">Find supermarkets
+                        near you</button>
                     <div class="card card-header">Pantry</div>
                     <div class="card card-body pantry-card">
                         <div class="list-group list-group-flush">
 
-                        <!-- Location for jQuery pantry ingredients -->
-                        
+                            <!-- Location for jQuery pantry ingredients -->
+
                         </div>
                     </div>
                     <input id="search-ingredients" class="btn" type="submit" value="Search for recipes">
                 </div>
 
                 <div class="col-9">
-                    <h6 id="missing">Missing ingredients?</h6>
-                    <button id="mapsLink" onclick=" window.open('maps.html', '_blank');">Find supermarkets
-                        near you</button>
                     <div class="card card-header">Recipes</div>
                     <div class="container" id="recView">
                         <div class="card card-body" id="recipeDisplay">
@@ -113,7 +113,9 @@
 
                 </div>
                 <div class="col-12">
-                    <span>Copyright &copy; 2019</span>
+                    <center>
+                        <span>Copyright &copy; 2019</span>
+                    </center>
                 </div>
             </div>
         </footer>
