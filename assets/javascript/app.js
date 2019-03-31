@@ -1,10 +1,16 @@
 var config = {
-    apiKey: "AIzaSyAYlkF8wl7rm-QDfZPqda4RsKcmoNxQxAY",
-    authDomain: "autochef-8f5c0.firebaseapp.com",
-    databaseURL: "https://autochef-8f5c0.firebaseio.com",
-    projectId: "autochef-8f5c0",
-    storageBucket: "autochef-8f5c0.appspot.com",
-    messagingSenderId: "482893096044"
+    // apiKey: "AIzaSyAYlkF8wl7rm-QDfZPqda4RsKcmoNxQxAY",
+    // authDomain: "autochef-8f5c0.firebaseapp.com",
+    // databaseURL: "https://autochef-8f5c0.firebaseio.com",
+    // projectId: "autochef-8f5c0",
+    // storageBucket: "autochef-8f5c0.appspot.com",
+    // messagingSenderId: "482893096044"
+    apiKey: "AIzaSyCoVXMUeHCQcOXm7BMy3bugGIqS96RVHMg",
+    authDomain: "autochef-cb7b1.firebaseapp.com",
+    databaseURL: "https://autochef-cb7b1.firebaseio.com",
+    projectId: "autochef-cb7b1",
+    storageBucket: "autochef-cb7b1.appspot.com",
+    messagingSenderId: "665438999544"
 };
 firebase.initializeApp(config);
 
@@ -208,6 +214,19 @@ $("document").ready(function () {
             button: false,
             timer: 1500,
         });
+    });
+
+    // saving the users name
+    $("#submitName").on("click", function () {
+        if (($("#name-input").val().trim() !== "")) {
+        var userName = $("#nameEntryModal #name-input").val().trim();
+        console.log(userName);
+        window.location.href='pantry.html';
+        $("#user-name").text("Welcome, " + userName);
+        // database.ref().child("/username/").set(playerOne)
+        } else {
+            $("#nameEntryModal .modal-title").text("Please input your name to continue");
+        }
     });
 
     $("table").on("click", "button", function () {
