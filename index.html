@@ -39,6 +39,11 @@
                         <a class="nav-link" href="#">My Cart</a>
                     </li> -->
                 </ul>
+                <ul class="nav navbar-nav ml-auto w-200 justify-content-end">
+                    <li class="nav-item" id="user-name">
+                        <!-- users name will go here once input -->
+                    </li>
+                </ul>
             </div>
         </nav>
 
@@ -48,36 +53,36 @@
                 <h1 class="display-4 text-center">Cooking made simple</h1>
                 <p class="lead text-center">Find recipes based on ingredients you have in your pantry</p>
                 <div class="mol-md-4 text-center">
-                    <button type="button" class="btn btn-secondary btn-lg" id="get-started" data-toggle="modal" data-target="#nameEntryModal">Get Started</button>
+                    <button type="button" class="btn btn-secondary btn-lg" id="get-started" data-toggle="modal"
+                        data-target="#nameEntryModal">Get Started</button>
                 </div>
             </div>
         </div>
-        
+
         <!-- get started modal -->
 
         <div class="modal fade" id="nameEntryModal" tabindex="-1" role="dialog">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
                     <div class="modal-header">
-                      <h4 class="modal-title">Enter your name</h4>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
+                        <h4 class="modal-title">Enter your name</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
                     <div class="modal-body">
-                      <form>
-                        <div class="form-group">
-                          <label for="recipient-name" class="col-form-label">Name:</label>
-                          <input type="text" class="form-control" id="recipient-name">
-                        </div>
-                      </form>
+                        <form>
+                            <div class="form-group">
+                                <input class="form-control" id="name-input" type="text" placeholder="Name">
+                            </div>
+                        </form>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" id="submitName">Submit</button>
+                        <button type="button" id="submitName">Submit</button>
                     </div>
-                  </div>
                 </div>
-              </div>
+            </div>
+        </div>
 
 
         <div class="jumbotron jumbotron-fluid" id="step-area">
@@ -160,6 +165,7 @@
         crossorigin="anonymous"></script>
     <!-- FireBase link -->
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+    <!-- Javascript link -->
     <script src="assets/javascript/app.js"></script>
 </body>
 
