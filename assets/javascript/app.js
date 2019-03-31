@@ -158,12 +158,20 @@ function printList() { // function to list all category / ingredient HTML
 
         for (var y = 0; y < list.getIngredients(x).length; y++) {
             var ingredient = list.getIngredients(x)[y];
+            var pantryList = JSON.parse(localStorage.getItem("ingredientSearch"));
 
             var tag_input = $("<input>");
             var tag_label = $("<label>");
 
             tag_input.attr("class", "form-check-input ingredient");
             tag_input.attr("type", "checkbox");
+
+            if (pantryList != null) {
+                if (pantryList.indexOf(ingredient) != -1) {
+                    console.log("Found " + ingredient);
+                    tag_input.prop("checked", true);
+                }
+            }
 
             tag_label.attr("class", "form-check-label");
             tag_label.text(ingredient);
@@ -220,11 +228,11 @@ $("document").ready(function () {
     // saving the users name
     $("#submitName").on("click", function () {
         if (($("#name-input").val().trim() !== "")) {
-        var userName = $("#nameEntryModal #name-input").val().trim();
-        console.log(userName);
-        window.location.href='pantry.html';
-        $("#user-name").text("Welcome, " + userName);
-        // database.ref().child("/username/").set(playerOne)
+            var userName = $("#nameEntryModal #name-input").val().trim();
+            console.log(userName);
+            window.location.href = 'pantry.html';
+            $("#user-name").text("Welcome, " + userName);
+            // database.ref().child("/username/").set(playerOne)
         } else {
             $("#nameEntryModal .modal-title").text("Please input your name to continue");
         }
@@ -242,7 +250,7 @@ $("document").ready(function () {
         // Find ingredient in Firebase and remove from Firebase 
         // Need to work on code, if no ingredient is found. === returns null for snapshot
         // snapshot.key doesnt work at location root
-        
+
         var firebaseKey = $(this).parent().parent().find("input").attr("firebaseKey");
         console.log("FB Key: " + firebaseKey);
         if (firebaseKey) {
@@ -273,64 +281,70 @@ $("document").ready(function () {
         var name = snapshot.val().name;
         var amt = snapshot.val().amnt;
         var keyid = snapshot.key;
-        
+
         function renderPantryPage() {
             var tag_tr = $("<tr>");
             var tag_button = $("<button>");
             var tag_input = $("<input>");
-    
+
             var tag_td_c1 = $("<td>"); // delete
             var tag_td_c2 = $("<td>"); // checkbox
             var tag_td_c3 = $("<td>"); // name
             var tag_td_c4 = $("<td>"); // amount
 
             var pantryList = JSON.parse(localStorage.getItem("ingredientSearch"));
-    
+
             tag_tr.attr("id", name.replace(/\s+/g, '-'));
             tag_td_c3.attr("class", "itm");
             tag_input.attr("type", "checkbox");
             tag_input.attr("class", "ingred-check");
             tag_input.attr("firebaseKey", keyid);
             console.log(keyid);
-    
-            if (pantryList.indexOf(name) != -1) {
-                console.log("Found " + name);
-                tag_input.prop( "checked", true );
+
+            if (pantryList != null) {
+                if (pantryList.indexOf(name) != -1) {
+                    console.log("Found " + name);
+                    tag_input.prop("checked", true);
+                }
             }
+            
 
             tag_button.attr("class", "close");
             tag_button.attr("aria-label", "Close");
             tag_button.html("<span aria-hidden=\"true\">&times;</span>");
             tag_button.css("float", "left");
             tag_button.css("color", "#FF6961");
-    
+
             tag_td_c1.append(tag_button);
             tag_td_c2.append(tag_input);
             tag_td_c3.text(name);
             tag_td_c4.text(amt + " oz");
-    
+
             tag_tr.append(tag_td_c1, tag_td_c2, tag_td_c3, tag_td_c4);
-    
+
             $("tbody").append(tag_tr);
         }
-        
+
         function renderRecipePage() {
             var tag_button = $("<button>");
 
             var pantryList = JSON.parse(localStorage.getItem("ingredientSearch"));
 
-            tag_button.attr("class", "list-group-item list-group-item-action"); 
+            tag_button.attr("class", "list-group-item list-group-item-action");
             tag_button.attr("type", "button");
             tag_button.text(name);
 
-            if (pantryList.indexOf(name) != -1) {
-                console.log("Found " + name);
-                // add "list-group-item-success" for selected items
-                tag_button.addClass("list-group-item-success"); 
-                tag_button.css("background", "greenyellow");
-                tag_button.css("color", "green");
+            if (pantryList != null) {
+                if (pantryList.indexOf(name) != -1) {
+                    console.log("Found " + name);
+                    // add "list-group-item-success" for selected items
+                    tag_button.addClass("list-group-item-success");
+                    tag_button.css("background", "greenyellow");
+                    tag_button.css("color", "green");
+                }
             }
             
+
             $(".pantry-card > .list-group").append(tag_button);
         }
 
@@ -355,7 +369,7 @@ $("document").ready(function () {
             $(this).css("color", "green");
             pantrySearch.push($(this).text());
             localStorage.setItem("ingredientSearch", JSON.stringify(pantrySearch));
-            
+
         }
         console.log("Pantry Items: " + pantrySearch);
 
@@ -367,6 +381,8 @@ $("document").ready(function () {
         var item = $(this).parent().parent().find(".itm").text();
 
         if (this.checked) {
+            if (itemsToSearch == null)
+                itemsToSearch = [];
             itemsToSearch.push(item);
             localStorage.setItem("ingredientSearch", JSON.stringify(itemsToSearch));
         } else {
@@ -378,98 +394,102 @@ $("document").ready(function () {
 
 
 
-/* ========== Recipe Search ========= */
-/**************************************/
+    /* ========== Recipe Search ========= */
+    /**************************************/
 
-window.onload = function() { 
-    var windowLoc = $(location).attr('pathname');
-    console.log(windowLoc);
+    window.onload = function () {
+        var windowLoc = $(location).attr('pathname');
+        console.log(windowLoc);
 
-    if (windowLoc.includes("/recipes.html") ) {
-        console.log("Click Reached");
-        $('#search-ingredients').click();
-    }
-}
-
-$("#search-ingredients").on("click", function (event) {
-    event.preventDefault();
-    
-    $("#recipeDisplay").empty();
-
-    // var ingredientSearch = $("#ingredient-input").val();
-    // var ingredientSearch = "Banana, Apple";
-
-    var ingredientSearch = JSON.parse(localStorage.getItem("ingredientSearch")).join();
-
-    var queryURL = "https://api.edamam.com/search?q=" + ingredientSearch + "&app_id=c43b2cf7&app_key=01c9ac7f0de42acc99556befcd0cf4c8"
-
-    //function displayRecipes() {
-    // Creating an AJAX call for the specific recipe button being clicked
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(function (response) {
-
-        console.log(response);
-        console.log(response.hits);
-
-        for (var i = 0; i < response.hits.length; i++) {
-            console.log(response.hits[i].recipe);
-
-            var recipeDiv = $('<div id="recipe-card">');
-            var recipeImage = $('<img>');
-            var recipeCaption = $('<div>');
-            var recipeBtnDiv = $('<div>');
-            var eda = (response.hits[i]);
-            console.log(eda.recipe.label);
-            // recipeDiv.attr("ingredients", eda.recipe.ingredientLines);
-            recipeCaption.addClass('caption');
-            recipeCaption.append($('<div>').text(eda.recipe.label).addClass('recipeName'));
-            recipeCaption.addClass('text-center');
-            recipeBtnDiv.append($('<a>').append($('<button>').addClass('btn btn-success recipeBtn').text('Go to recipe')).attr('href', response.hits[i].recipe.url).attr('target', '_blank'));
-            recipeCaption.append(recipeBtnDiv);
-            recipeImage.attr('src', eda.recipe.image);
-            recipeImage.addClass("recImg")
-            // recipeImage.addClass('mx-auto');
-            recipeDiv.addClass('thumbnail col-lg-4 recipe');
-            recipeDiv.append(recipeImage);
-            recipeDiv.append(recipeCaption);
-            $("#recipeDisplay").append(recipeDiv);
-            // for (var j = 0; j < eda.recipe.ingredients.text.length; j++) {
-            //     console.log(eda.recipe.ingredients.text[j].length)
-            // recipeDiv.attr("ingredients", JSON.stringify(eda[i].recipe.ingredients));
-            //}
-            clearInput();
+        if (windowLoc.includes("/recipes.html")) {
+            console.log("Click Reached");
+            $('#search-ingredients').click();
         }
+    }
+
+    $("#search-ingredients").on("click", function (event) {
+        event.preventDefault();
+
+        $("#recipeDisplay").empty();
+
+        // var ingredientSearch = $("#ingredient-input").val();
+        // var ingredientSearch = "Banana, Apple";
+
+        var ingredientSearch = JSON.parse(localStorage.getItem("ingredientSearch")).join();
+
+        var queryURL = "https://api.edamam.com/search?q=" + ingredientSearch + "&app_id=c43b2cf7&app_key=01c9ac7f0de42acc99556befcd0cf4c8"
+
+        //function displayRecipes() {
+        // Creating an AJAX call for the specific recipe button being clicked
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function (response) {
+
+            console.log(response);
+            console.log(response.hits);
+
+            for (var i = 0; i < response.hits.length; i++) {
+                console.log(response.hits[i].recipe);
+
+                var recipeDiv = $('<div id="recipe-card">');
+                var recipeImage = $('<img>');
+                var recipeCaption = $('<div>');
+                var recipeBtnDiv = $('<div>');
+                var eda = (response.hits[i]);
+                console.log(eda.recipe.label);
+                // recipeDiv.attr("ingredients", eda.recipe.ingredientLines);
+                recipeCaption.addClass('caption');
+                recipeCaption.append($('<div>').text(eda.recipe.label).addClass('recipeName'));
+                recipeCaption.addClass('text-center');
+                recipeBtnDiv.append($('<a>').append($('<button>').addClass('btn btn-success recipeBtn').text('Go to recipe')).attr('href', response.hits[i].recipe.url).attr('target', '_blank'));
+                recipeCaption.append(recipeBtnDiv);
+                recipeImage.attr('src', eda.recipe.image);
+                recipeImage.addClass("recImg")
+                // recipeImage.addClass('mx-auto');
+                recipeDiv.addClass('thumbnail col-lg-4 recipe');
+                recipeDiv.append(recipeImage);
+                recipeDiv.append(recipeCaption);
+                $("#recipeDisplay").append(recipeDiv);
+                // for (var j = 0; j < eda.recipe.ingredients.text.length; j++) {
+                //     console.log(eda.recipe.ingredients.text[j].length)
+                // recipeDiv.attr("ingredients", JSON.stringify(eda[i].recipe.ingredients));
+                //}
+                clearInput();
+            }
 
 
+        });
     });
-});
 
 
-$(document).on("click", ".ingredient", function () {
-    var item = $(this).next().text();
+    $(document).on("click", ".ingredient", function () {
+        var item = $(this).next().text();
 
-    if (this.checked) {
-        console.log(item + " is added");
-        var addPantryItem = {
-            name: item,
-            amnt: ""
-        };
+        if (this.checked) {
+            console.log(item + " is added");
+            var addPantryItem = {
+                name: item,
+                amnt: ""
+            };
 
-        var ingredientRef = database.ref().push(addPantryItem);
-        var ingredientKey = ingredientRef.getKey();
-        $(this).attr("firebaseKey", ingredientKey);
+            var ingredientRef = database.ref().push(addPantryItem);
+            var ingredientKey = ingredientRef.getKey();
+            $(this).attr("firebaseKey", ingredientKey);
 
-    } else {
-        var firebaseKey = $(this).attr("firebaseKey");
-        if (firebaseKey) {
-            console.log(item + " is removed @ key: " + firebaseKey);
-            database.ref(firebaseKey).remove();
+        } else {
+            var firebaseKey = $(this).attr("firebaseKey");
+            if (firebaseKey) {
+                console.log(item + " is removed @ key: " + firebaseKey);
+                database.ref(firebaseKey).remove();
+            } else {
+                firebaseKey = $("#" + item).find("input").attr("firebaseKey");
+                console.log(item + " is removed @ key: " + firebaseKey);
+                database.ref(firebaseKey).remove();
+            }
+
         }
-
-    }
-});
+    });
 
 
 });
