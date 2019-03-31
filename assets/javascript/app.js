@@ -356,6 +356,9 @@ $("document").ready(function () {
     $(document).on("click", ".list-group-item", function () {
         var currentClasses = $(this).attr("class");
         var pantrySearch = JSON.parse(localStorage.getItem("ingredientSearch"));
+        
+        if (pantrySearch == null)
+            pantrySearch = [];
 
         if (currentClasses.includes("list-group-item-success")) {
             $(this).removeClass("list-group-item-success");
@@ -379,10 +382,11 @@ $("document").ready(function () {
     $(document).on("click", ".ingred-check", function () {
         var itemsToSearch = JSON.parse(localStorage.getItem("ingredientSearch"));
         var item = $(this).parent().parent().find(".itm").text();
+        
+        if (itemsToSearch == null)
+            itemsToSearch = [];
 
         if (this.checked) {
-            if (itemsToSearch == null)
-                itemsToSearch = [];
             itemsToSearch.push(item);
             localStorage.setItem("ingredientSearch", JSON.stringify(itemsToSearch));
         } else {
