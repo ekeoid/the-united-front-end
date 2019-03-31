@@ -298,9 +298,8 @@ $("document").ready(function () {
             itemsToSearch.splice(itemsToSearch.indexOf(item), 1);
         }
         console.log(itemsToSearch);
-        console.log(itemsToSearch.join());
     });
-});
+
 
 
 /* ========== Recipe Search ========= */
@@ -381,4 +380,16 @@ $(document).on("click", ".ingredient", function () {
         }
 
     }
+});
+
+
+$("#search-pantry-btn").on("click", function (event) {
+    event.preventDefault();
+    
+    localStorage.setItem("ingredientSearch", JSON.stringify(itemsToSearch));
+    // use itemsToSearch.join() to stringify
+    // use JSON.parse(localStorage.getItem("ingredientSearch")) to convert to Array
+});
+
+
 });
