@@ -104,20 +104,19 @@ function loadList() { // function to contain category / ingredient addition
     list.addIngredient("Dairy", "butter, milk, yogurt, cream, cream cheese, whipped cream");
     list.addIngredient("Vegetables", "onions, broccoli, basil, cucumbers, green beans, corn, potato");
     list.addIngredient("Fruits", "lemon, apple, banana, lime, strawberry, orange, pineapple");
-    list.addIngredient("Meat", "chicken breast, bacon, ground beef");
-    list.addIngredient("Grains", "rice, pasta, flour");
-    list.addIngredient("Spices", "pepper, salt");
-    list.addIngredient("Sweeteners", "");
-    list.addIngredient("Fish", "");
-    list.addIngredient("Alcohol", "white wine, beer, red wine");
-    list.addIngredient("Condiments", "");
-    list.addIngredient("Beverages", "");
-    list.addIngredient("Snacks", "");
+    list.addIngredient("Meat", "chicken, bacon, ground beef, sausage, ham, turkey, venison, salami, pork");
+    list.addIngredient("Grains", "rice, pasta, flour, oats, rye, millet");
+    list.addIngredient("Spices", "ginger, cumin, nutmeg, coriander, saffron, turmeric, garlic, paprika, cardamom, pepper, salt");
+    list.addIngredient("Sweeteners", "sugar ,honey, maple syrup, brown sugar, corn syrup, molasses");
+    list.addIngredient("Fish", "tuna, mahi mahi, salmon, carp, marlin, eel, sole, trout, flounder, halibut");
+    list.addIngredient("Alcohol", "white wine, beer, red wine, vodka, rum, whiskey, tequila, sake");
+    list.addIngredient("Condiments", "mayonnaise, mustard, ketchup, vinegar, tabasco, sriracha, oyster sauce, soy sauce, buffalo sauce");
+    list.addIngredient("Beverages", "coffee, lemonade, ginger ale, chocolate milk, milk, tea, soda, juice, espresso");
+    list.addIngredient("Snacks", "chocolate, apple sauce, jam, peanut butter, grape jelly, jello, corn chips, potato chips, caramel, fudge");
     list.addIngredient("Miscellaneous", "");
 }
 
 function printList() { // function to list all category / ingredient HTML
-
     for (var x = 0; x < list.getCategories.length; x++) {
         var category = list.getCategories[x];
         var link = list.getLinks[x];
@@ -168,7 +167,7 @@ function printList() { // function to list all category / ingredient HTML
         tag_div_2.append(tag_div_3);
         tag_div_1.append(tag_div_2);
 
-        $("#food-items > .card-body").append(tag_button, tag_div_1, "</br>");
+        $("#food-items > .categories-card").append(tag_button, tag_div_1, "</br>");
     }
 }
 
@@ -176,6 +175,8 @@ var list = new Categories();
 loadList();
 printList();
 
+/* ======= Pantry Manipulation ====== */
+/**************************************/
 
 function clearInput() {
     $("#ingredient-name-input").val("");
@@ -183,7 +184,6 @@ function clearInput() {
     $("#ingredient-input").val("");
 }
 
-// pantry manipulation
 $("document").ready(function () {
 
     getInput = function () {
@@ -195,14 +195,11 @@ $("document").ready(function () {
             amnt: amount
         };
 
-
-        //validation input function possible here
         database.ref().push(newPantryItem);
         clearInput();
     };
 
     $("#add-ingredient-btn").on("click", function (event) {
-        // event.preventDefault();
         event.preventDefault();
         getInput();
 
@@ -216,60 +213,47 @@ $("document").ready(function () {
     $("table").on("click", "button", function () {
         $(this).closest("tr").remove();
 
-        swal({
-            title: "Are you sure?",
-            text: "Once deleted, you will not be able to recover this Pantry item!",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-        })
-            .then((willDelete) => {
-                if (willDelete) {
-                    swal("Poof! Your Pantry item has been deleted!", {
-                        icon: "success",
-                        button: false,
-                        timer: 1500,
-                    });
-                } else {
-                    swal("Your Pantry is safe!", {
-                        button: false,
-                        timer: 1500,
-                    });
-                }
-
-            });
+        swal("Poof! Your Pantry item has been deleted!", {
+            icon: "success",
+            button: false,
+            timer: 1000,
+        });
 
         // Find ingredient in Firebase and remove from Firebase 
         // Need to work on code, if no ingredient is found. === returns null for snapshot
         // snapshot.key doesnt work at location root
-        var ingredientToDelete = $(this).closest("tr").find(".itm").text();
+        
+        var firebaseKey = $(this).parent().parent().find("input").attr("firebaseKey");
+        console.log("FB Key: " + firebaseKey);
+        if (firebaseKey) {
+            console.log($(this).closest("tr").find(".itm").text() + " is removed @ key: " + firebaseKey);
+            database.ref(firebaseKey).remove();
+        }
 
-        database.ref().orderByChild("name").equalTo(ingredientToDelete).on("value", function (snapshot) {
-            // console.log(snapshot.val());
-            // console.log(snapshot.key);
-            snapshot.forEach(function (data) {
-                // console.log(data.key);
-                database.ref().child(data.key).remove();
-            });
-        });
+        //var ingredientToDelete = $(this).closest("tr").find(".itm").text();
+        // database.ref().orderByChild("name").equalTo(ingredientToDelete).on("value", function (snapshot) {
+        //     // console.log(snapshot.val());
+        //     // console.log(snapshot.key);
+        //     snapshot.forEach(function (data) {
+        //         // console.log(data.key);
+        //         database.ref().child(data.key).remove();
+        //     });
+        // });
     });
 
     database.ref().on("child_removed", function (snapshot) {
         var name = snapshot.val().name;
         console.log(name);
-        console.log("#" + name.toLowerCase());
-        console.log($("#" + name));
-        $("#" + name).remove();
+        console.log($("#" + name.replace(/\s+/g, '-')));
+        $("#" + name.replace(/\s+/g, '-')).remove();
 
     });
 
     database.ref().on("child_added", function (snapshot) {
         var name = snapshot.val().name;
         var amt = snapshot.val().amnt;
-        var deletePantryItem = "x";
-        // var checkbox = document.createElement("INPUT");
-        // checkbox.attr("type", "checkbox");
-
+        // var deletePantryItem = "x";
+        
         var tag_tr = $("<tr>");
         var tag_button = $("<button>");
         var tag_input = $("<input>");
@@ -279,12 +263,18 @@ $("document").ready(function () {
         var tag_td_c3 = $("<td>"); // name
         var tag_td_c4 = $("<td>"); // amount
 
-        tag_tr.attr("id", name);
+        tag_tr.attr("id", name.replace(/\s+/g, '-'));
         tag_td_c3.attr("class", "itm");
         tag_input.attr("type", "checkbox");
         tag_input.attr("class", "ingred-check");
+        tag_input.attr("firebaseKey", snapshot.key);
+        console.log(snapshot.key);
 
-        tag_button.text(deletePantryItem);
+        tag_button.attr("class", "close");
+        tag_button.attr("aria-label", "Close");
+        tag_button.html("<span aria-hidden=\"true\">&times;</span>");
+        tag_button.css("float", "left");
+        tag_button.css("color", "#FF6961");
 
         tag_td_c1.append(tag_button);
         tag_td_c2.append(tag_input);
@@ -295,23 +285,8 @@ $("document").ready(function () {
 
         $("tbody").append(tag_tr);
 
-        // $("tbody").append("<tr><td><button>" + deletePantryItem + "</button></td><td>" + "<input type='checkbox' class='ingred-check'/>" + "</td><td class='itm'>" + name + "</td><td>" + amt + " oz" + "</td></tr>");
     });
 
-
-    // swal("Item Removed from Pantry...");
-
-
-    // database.ref().on("child_added", function (snapshot) {
-    // 	var name = snapshot.val().name;
-    // 	var amt = snapshot.val().amnt;
-    // 	var deletePantryItem = "x";
-    // 	// var checkbox = document.createElement("INPUT");
-    // 	// checkbox.attr("type", "checkbox");
-
-
-    // 	$("tbody").append("<tr><td><button>" + deletePantryItem + "</button></td><td>" + "<input type='checkbox' class='ingred-check'/>" + "</td><td class='itm'>" + name + "</td><td>" + amt + " oz" + "</td></tr>")er
-    // });
     // Check items in pantry to add to search
     var itemsToSearch = [];
     $(document).on("click", ".ingred-check", function () {
@@ -323,12 +298,12 @@ $("document").ready(function () {
             itemsToSearch.splice(itemsToSearch.indexOf(item), 1);
         }
         console.log(itemsToSearch);
-        console.log(itemsToSearch.join());
     });
-});
 
 
-// recipe search 
+
+/* ========== Recipe Search ========= */
+/**************************************/
 
 $("#search-ingredients").on("click", function (event) {
     event.preventDefault();
@@ -346,8 +321,9 @@ $("#search-ingredients").on("click", function (event) {
         method: "GET"
     }).then(function (response) {
 
-        console.log(response)
-        console.log(response.hits)
+        console.log(response);
+        console.log(response.hits);
+
         for (var i = 0; i < response.hits.length; i++) {
             console.log(response.hits[i].recipe);
 
@@ -394,24 +370,26 @@ $(document).on("click", ".ingredient", function () {
 
         var ingredientRef = database.ref().push(addPantryItem);
         var ingredientKey = ingredientRef.getKey();
-        $(this).attr('firebaseKey', ingredientKey);
+        $(this).attr("firebaseKey", ingredientKey);
 
     } else {
-        // console.log("hello");
-        database.ref().orderByChild("name").equalTo(item).on("value", function (snapshot) {
-            console.log(snapshot.val());
-            console.log(snapshot.key);
-            if (this.checked) {
-            snapshot.forEach(function (data) {
-                console.log(data.key + " is removed");
-                database.ref().child(data.key).remove();
-            });
-            }
-        });
-        // var firebaseKey = $(this).attr('firebaseKey');
-        // if (firebaseKey) {
-        //     database.ref(firebaseKey).remove();
-        // }
+        var firebaseKey = $(this).attr("firebaseKey");
+        if (firebaseKey) {
+            console.log(item + " is removed @ key: " + firebaseKey);
+            database.ref(firebaseKey).remove();
+        }
 
     }
+});
+
+
+$("#search-pantry-btn").on("click", function (event) {
+    event.preventDefault();
+    
+    localStorage.setItem("ingredientSearch", JSON.stringify(itemsToSearch));
+    // use itemsToSearch.join() to stringify
+    // use JSON.parse(localStorage.getItem("ingredientSearch")) to convert to Array
+});
+
+
 });
