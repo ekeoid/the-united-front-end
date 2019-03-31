@@ -225,18 +225,20 @@ $("document").ready(function () {
         });
     });
 
-    // saving the users name
+    // saving the users name to local storage
     $("#submitName").on("click", function () {
         if (($("#name-input").val().trim() !== "")) {
             var userName = $("#nameEntryModal #name-input").val().trim();
+            var userNameDisplay = ("Welcome, " + userName);
             console.log(userName);
             window.location.href = 'pantry.html';
-            $("#user-name").text("Welcome, " + userName);
-            database.ref().child("/username/").set(userName)
+            localStorage.setItem("name", userNameDisplay);
         } else {
             $("#nameEntryModal .modal-title").text("Please input your name to continue");
         }
     });
+
+    $("#user-name").text(localStorage.getItem("name"));
 
     $("table").on("click", "button", function () {
         $(this).closest("tr").remove();
