@@ -225,7 +225,7 @@ $("document").ready(function () {
             console.log(userName);
             window.location.href = 'pantry.html';
             $("#user-name").text("Welcome, " + userName);
-            // database.ref().child("/username/").set(playerOne)
+            database.ref().child("/username/").set(userName)
         } else {
             $("#nameEntryModal .modal-title").text("Please input your name to continue");
         }

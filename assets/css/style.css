@@ -13,12 +13,18 @@ body {
                         rgba(245, 222, 179, 0.50),
                         rgba(245, 222, 179, 0.50)),
                         url("../images/purty-wood.png");
+    height: 100%;
+    position: relative;
 }
 
 #wrapper {
-    min-height: 100vh;
+    min-height: 100vh; /* will cover the 100% of viewport */
+    overflow: hidden;
+    display: block;
+    position: relative;
+    padding-bottom: 100px; /* height of your footer */
     /* background: whitesmoke; */
-    /*padding-bottom:300px;*/ /* this needs to be bigger than footer height*/
+    /* padding-bottom:300px; this needs to be bigger than footer height */
 }
 
 .btn {
@@ -171,7 +177,7 @@ nav{
 }
 
 #recipeDisplay{
-    
+    margin-top: 0px;
     background: whitesmoke;
     display: block;
 }
@@ -187,7 +193,7 @@ nav{
 }
 
  #recipe-card{
-    background: orange;
+    background: lightsalmon;
     display: inline-block;
     height: 250px;
     width: 200px;
@@ -195,7 +201,7 @@ nav{
     border-style: solid;
     border-width: 1px;
     border-radius: 10px 5px 10px 5px;
-    margin: 3px
+    margin: 3px;
  }
 
 #git,
@@ -213,7 +219,7 @@ li{
     display:inline;
 }
 
-.footer {
+/* .footer {
   
   font-family: 'Arial, Helvetica, sans-serif';
   background-color: #777777;
@@ -226,38 +232,46 @@ li{
   padding-bottom: 2px;
   border-top: 8px #4aaaa5 solid;
   /* position: fixed; */
-  height: 80px;
+  /* height: 80px;
   left: 0;
   bottom: 0;
   width: 100%;
   text-decoration: none;
   color: #4aaaa5;
-}
+} */ 
 /* .footer li {
     color: #666;
     list-style: none;
 } */
 
+
+.footer {
+    background: rgba(255, 255, 255, .45);
+    border-top: none;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer li:hover > img {
+    transform: scale(1.2);
+} 
+
+.footer li > img {
+    height: 30px;
+    width: 30px;
+    margin-right: 5px;
+}
+
 .footer li:hover {
-    color: blanchedalmond;
     font-weight: 500;
     cursor: pointer;
 } 
 
-/* .footer li:hover > img {
-    transform: scale(1.2);
-} */
-
-/* .footer li > img {
-    height: 30px;
-    width: 30px;
-    margin-right: 5px;
-
-}
-*/
 
 #missing {
-    color: grey;  
+    color: gray;  
+    font-weight: lighter;
 }
 
 #mapsLink {
@@ -266,6 +280,7 @@ li{
     margin-bottom: 5px;
     border-radius: 5px;
     border: 1px solid salmon;
+    font-weight: lighter;
 }
 
 #mapsLink:hover {
@@ -276,8 +291,18 @@ li{
 
 #submitName {
     color: white;
-    background: rgb(173, 225, 47);
+    background: #ea1753;
     border-radius: 5px;
-    border: 1px solid rgb(173, 225, 47);
+    border: 1px solid #ea1753;
 }
 
+#submitName:hover {
+    cursor: pointer;
+    background: #b7244e;
+    border: 1px solid #b7244e;
+}
+
+.modal-title {
+    color: rgb(83, 77, 77);
+    font-weight: lighter;
+}
