@@ -1,17 +1,18 @@
 var config = {
-    // apiKey: "AIzaSyAYlkF8wl7rm-QDfZPqda4RsKcmoNxQxAY",
-    // authDomain: "autochef-8f5c0.firebaseapp.com",
-    // databaseURL: "https://autochef-8f5c0.firebaseio.com",
-    // projectId: "autochef-8f5c0",
-    // storageBucket: "autochef-8f5c0.appspot.com",
-    // messagingSenderId: "482893096044"
-    apiKey: "AIzaSyCoVXMUeHCQcOXm7BMy3bugGIqS96RVHMg",
-    authDomain: "autochef-cb7b1.firebaseapp.com",
-    databaseURL: "https://autochef-cb7b1.firebaseio.com",
-    projectId: "autochef-cb7b1",
-    storageBucket: "autochef-cb7b1.appspot.com",
-    messagingSenderId: "665438999544"
+    apiKey: "AIzaSyAYlkF8wl7rm-QDfZPqda4RsKcmoNxQxAY",
+    authDomain: "autochef-8f5c0.firebaseapp.com",
+    databaseURL: "https://autochef-8f5c0.firebaseio.com",
+    projectId: "autochef-8f5c0",
+    storageBucket: "autochef-8f5c0.appspot.com",
+    messagingSenderId: "482893096044"
+    // apiKey: "AIzaSyCoVXMUeHCQcOXm7BMy3bugGIqS96RVHMg",
+    // authDomain: "autochef-cb7b1.firebaseapp.com",
+    // databaseURL: "https://autochef-cb7b1.firebaseio.com",
+    // projectId: "autochef-cb7b1",
+    // storageBucket: "autochef-cb7b1.appspot.com",
+    // messagingSenderId: "665438999544"
 };
+
 firebase.initializeApp(config);
 
 var database = firebase.database();
@@ -271,38 +272,63 @@ $("document").ready(function () {
     database.ref().on("child_added", function (snapshot) {
         var name = snapshot.val().name;
         var amt = snapshot.val().amnt;
-        // var deletePantryItem = "x";
+        var keyid = snapshot.key;
         
-        var tag_tr = $("<tr>");
-        var tag_button = $("<button>");
-        var tag_input = $("<input>");
+        function renderPantryPage() {
+            var tag_tr = $("<tr>");
+            var tag_button = $("<button>");
+            var tag_input = $("<input>");
+    
+            var tag_td_c1 = $("<td>"); // delete
+            var tag_td_c2 = $("<td>"); // checkbox
+            var tag_td_c3 = $("<td>"); // name
+            var tag_td_c4 = $("<td>"); // amount
+    
+            tag_tr.attr("id", name.replace(/\s+/g, '-'));
+            tag_td_c3.attr("class", "itm");
+            tag_input.attr("type", "checkbox");
+            tag_input.attr("class", "ingred-check");
+            tag_input.attr("firebaseKey", keyid);
+            console.log(keyid);
+    
+            tag_button.attr("class", "close");
+            tag_button.attr("aria-label", "Close");
+            tag_button.html("<span aria-hidden=\"true\">&times;</span>");
+            tag_button.css("float", "left");
+            tag_button.css("color", "#FF6961");
+    
+            tag_td_c1.append(tag_button);
+            tag_td_c2.append(tag_input);
+            tag_td_c3.text(name);
+            tag_td_c4.text(amt + " oz");
+    
+            tag_tr.append(tag_td_c1, tag_td_c2, tag_td_c3, tag_td_c4);
+    
+            $("tbody").append(tag_tr);
+        }
+        
+        function renderRecipePage() {
+            var tag_button = $("<button>");
 
-        var tag_td_c1 = $("<td>"); // delete
-        var tag_td_c2 = $("<td>"); // checkbox
-        var tag_td_c3 = $("<td>"); // name
-        var tag_td_c4 = $("<td>"); // amount
+            var pantryList = JSON.parse(localStorage.getItem("ingredientSearch"));
 
-        tag_tr.attr("id", name.replace(/\s+/g, '-'));
-        tag_td_c3.attr("class", "itm");
-        tag_input.attr("type", "checkbox");
-        tag_input.attr("class", "ingred-check");
-        tag_input.attr("firebaseKey", snapshot.key);
-        console.log(snapshot.key);
+            tag_button.attr("class", "list-group-item list-group-item-action"); 
+            tag_button.attr("type", "button");
+            tag_button.text(name);
 
-        tag_button.attr("class", "close");
-        tag_button.attr("aria-label", "Close");
-        tag_button.html("<span aria-hidden=\"true\">&times;</span>");
-        tag_button.css("float", "left");
-        tag_button.css("color", "#FF6961");
+            if (pantryList.indexOf(name) != -1) {
+                console.log("Found " + name);
+                // add "list-group-item-success" for selected items
+                tag_button.addClass("list-group-item-success"); 
+                tag_button.css("background", "greenyellow");
+                tag_button.css("color", "green");
+            }
+            
+            $(".pantry-card > .list-group").append(tag_button);
+        }
 
-        tag_td_c1.append(tag_button);
-        tag_td_c2.append(tag_input);
-        tag_td_c3.text(name);
-        tag_td_c4.text(amt + " oz");
-
-        tag_tr.append(tag_td_c1, tag_td_c2, tag_td_c3, tag_td_c4);
-
-        $("tbody").append(tag_tr);
+        renderPantryPage();
+        renderRecipePage();
 
     });
 
@@ -324,13 +350,26 @@ $("document").ready(function () {
 /* ========== Recipe Search ========= */
 /**************************************/
 
+window.onload = function() { 
+    var windowLoc = $(location).attr('pathname');
+    console.log(windowLoc);
+
+    if (windowLoc.includes("/recipes.html") ) {
+        console.log("Click Reached");
+        $('#search-ingredients').click();
+    }
+}
+
 $("#search-ingredients").on("click", function (event) {
     event.preventDefault();
     // Initial array of movies
     // $("#recipeDisplay").empty();
 
+    // var ingredientSearch = $("#ingredient-input").val();
+    // var ingredientSearch = "Banana, Apple";
 
-    var ingredientSearch = $("#ingredient-input").val();
+    var ingredientSearch = JSON.parse(localStorage.getItem("ingredientSearch")).join();
+
     var queryURL = "https://api.edamam.com/search?q=" + ingredientSearch + "&app_id=c43b2cf7&app_key=01c9ac7f0de42acc99556befcd0cf4c8"
 
     //function displayRecipes() {
