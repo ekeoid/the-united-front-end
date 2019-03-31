@@ -47,8 +47,8 @@
             <div class="row">
                 <div id="food-items" class="col-md-3">
                     <div class="card card-header">Items</div>
-                    <div class="card card-body">
-                        
+                    <div class="card card-body categories-card">
+
                         <!-- Location for jQuery categories -->
 
                     </div>
@@ -74,6 +74,10 @@
                                     </tbody>
                                 </form>
                             </table>
+                            
+                        </div>
+                        <div class="row ml-auto mr-3 mb-3">
+                                <button class="btn btn-success btn-submit" id="search-pantry-btn" type="button" onclick="location.href='recipes.html'" value="Go to Recipes">Search for Recipes</button>
                         </div>
                     </div>
                 </div>
@@ -92,11 +96,10 @@
                                     <div class="form-group">
                                         <label for="amount-input">Amount(optional) </label>
                                         <input class="form-control" id="amount-input"
-                                            placeholder="how much you have on hand(oz (approx)" type="text">
+                                            placeholder="how much you have (oz)?" type="text">
                                     </div>
                                 </form>
-                                <button class="btn btn-success btn-submit" id="add-ingredient-btn">add to
-                                    pantry</button>
+                                <button class="btn btn-success btn-submit" id="add-ingredient-btn">Add to Your Pantry</button>
                             </div>
                         </div>
                     </div>
