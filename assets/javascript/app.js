@@ -283,6 +283,8 @@ $("document").ready(function () {
             var tag_td_c2 = $("<td>"); // checkbox
             var tag_td_c3 = $("<td>"); // name
             var tag_td_c4 = $("<td>"); // amount
+
+            var pantryList = JSON.parse(localStorage.getItem("ingredientSearch"));
     
             tag_tr.attr("id", name.replace(/\s+/g, '-'));
             tag_td_c3.attr("class", "itm");
@@ -291,6 +293,11 @@ $("document").ready(function () {
             tag_input.attr("firebaseKey", keyid);
             console.log(keyid);
     
+            if (pantryList.indexOf(name) != -1) {
+                console.log("Found " + name);
+                tag_input.prop( "checked", true );
+            }
+
             tag_button.attr("class", "close");
             tag_button.attr("aria-label", "Close");
             tag_button.html("<span aria-hidden=\"true\">&times;</span>");
@@ -332,17 +339,41 @@ $("document").ready(function () {
 
     });
 
+    $(document).on("click", ".list-group-item", function () {
+        var currentClasses = $(this).attr("class");
+        var pantrySearch = JSON.parse(localStorage.getItem("ingredientSearch"));
+
+        if (currentClasses.includes("list-group-item-success")) {
+            $(this).removeClass("list-group-item-success");
+            $(this).css("background", "inherit");
+            $(this).css("color", "inherit");
+            pantrySearch.splice(pantrySearch.indexOf($(this).text()), 1);
+            localStorage.setItem("ingredientSearch", JSON.stringify(pantrySearch));
+        } else {
+            $(this).addClass("list-group-item-success");
+            $(this).css("background", "greenyellow");
+            $(this).css("color", "green");
+            pantrySearch.push($(this).text());
+            localStorage.setItem("ingredientSearch", JSON.stringify(pantrySearch));
+            
+        }
+        console.log("Pantry Items: " + pantrySearch);
+
+    });
+
     // Check items in pantry to add to search
-    var itemsToSearch = [];
     $(document).on("click", ".ingred-check", function () {
+        var itemsToSearch = JSON.parse(localStorage.getItem("ingredientSearch"));
         var item = $(this).parent().parent().find(".itm").text();
 
         if (this.checked) {
             itemsToSearch.push(item);
+            localStorage.setItem("ingredientSearch", JSON.stringify(itemsToSearch));
         } else {
             itemsToSearch.splice(itemsToSearch.indexOf(item), 1);
+            localStorage.setItem("ingredientSearch", JSON.stringify(itemsToSearch));
         }
-        console.log(itemsToSearch);
+        console.log("Pantry Search: " + itemsToSearch);
     });
 
 
@@ -362,8 +393,8 @@ window.onload = function() {
 
 $("#search-ingredients").on("click", function (event) {
     event.preventDefault();
-    // Initial array of movies
-    // $("#recipeDisplay").empty();
+    
+    $("#recipeDisplay").empty();
 
     // var ingredientSearch = $("#ingredient-input").val();
     // var ingredientSearch = "Banana, Apple";
@@ -438,15 +469,6 @@ $(document).on("click", ".ingredient", function () {
         }
 
     }
-});
-
-
-$("#search-pantry-btn").on("click", function (event) {
-    event.preventDefault();
-    
-    localStorage.setItem("ingredientSearch", JSON.stringify(itemsToSearch));
-    // use itemsToSearch.join() to stringify
-    // use JSON.parse(localStorage.getItem("ingredientSearch")) to convert to Array
 });
 
 
