@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
+    <title>About Us</title>
+</head>
+
+<style>
+    .input-color {
+        position: relative;
+        padding-right: 40px;
+    }
+
+    .input-color .color-box {
+        width: 32px;
+        height: 32px;
+        border-radius: 5px;
+        display: inline-block;
+        background-color: #fff;
+        position: absolute;
+        top: 5px;
+    }
+
+    span.number {
+        background: #BBB;
+        font-size: 0.8em;
+        padding: 1px;
+        width: 1.5em;
+    }
+
+    h6.heading {
+        font-size: 1.8em;
+    }
+
+    .self-bg-transparent {
+        background: rgba(0, 0, 0, .10);
+    }
+
+    .footer {
+        background: rgba(0, 0, 0, .20);
+    }
+</style>
+
+<body>
+
+    <div id="wrapper">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand px-2" href="index.html"><img src="assets/images/autochef-logo-cropped.png"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <ul class="navbar-nav ml-2 mr-auto">
+                    <li class="nav-item mx-1">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item mx-1">
+                        <a class="nav-link" href="pantry.html">My Pantry</a>
+                    </li>
+                    <!-- <li class="nav-item mx-1">
+                                <a class="nav-link" href="#">Favorite Recipes</a>
+                            </li> -->
+                    <li class="nav-item mx-1">
+                        <a class="nav-link" href="recipes.html">Recipe Search</a>
+                    </li>
+                    <!-- <li class="nav-item mx-1">
+                                <a class="nav-link" href="#">My Cart</a>
+                            </li> -->
+                </ul>
+                <ul class="nav navbar-nav ml-auto w-200 justify-content-end">
+                    <li class="nav-item" id="user-name">
+                        <!-- users name will go here once input -->
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="jumbotron bg-transparent mb-0 pt-4 pb-1">
+            <div class="container">
+                <h1 class="display-5">The Autochef Project</h1>
+                <p>The Autochef is a web application will take ingredients available from your pantry and provide
+                    suggestions to the user of possible recipes to create based on the ingredients on-hand. This
+                    requires tracking the items the users has, and matching them with recipe API’s to get a probable
+                    match. Once the suggestions of recipes are listed, the user can browse each one and identify missing
+                    ingredients, prices to fulfill recipe, and where to find the items.
+                </p>
+
+                <div class="row self-bg-transparent m-1">
+                    <div class="card-deck mx-auto text-center">
+                        <div class="card bg-transparent border-0 mb-4">
+                            <h1><span class="number">1</span></h1>
+                            <p>Get Started</p>
+                        </div>
+                        <div class="card bg-transparent border-0 mb-4">
+                            <h1><span class="number">2</span></h1>
+                            <p>Fill items to your pantry</p>
+                        </div>
+                        <div class="card bg-transparent border-0 mb-4">
+                            <h1><span class="number">3</span></h1>
+                            <p>Select items you want to use</p>
+                        </div>
+                        <div class="card bg-transparent border-0 mb-4">
+                            <h1><span class="number">4</span></h1>
+                            <p>Select that yummy recipe</p>
+                        </div>
+                        <div class="card bg-transparent border-0 mb-4">
+                            <h1><span class="number">5</span></h1>
+                            <p>Go grocery shopping for those extra ingredients</p>
+                        </div>
+                    </div>
+
+                </div> <!-- .row .card-deck -->
+            </div> <!-- .container -->
+        </div> <!-- .jumbotron -->
+
+        <div class="container">
+            <hr class="my-3">
+
+            <div class="row p-3 self-bg-transparent mx-1">
+                <div class="col-md-4">
+                    <h6 class="heading">Description</h6>
+                    <p>introduction -->
+                        why we create / mission
+                        who will use it / what it does
+
+                        App Overview --> Functionality
+                        steps they take to use it
+                        what happens
+
+
+                        This app takes food on hand(pantry) and adds it to a search to find recipes based on what's
+                        in your pantry. You can also do a quick search by typing in your ingredients if you didn’t
+                        want to use the pantry function, or you can use the preselected items in the sidebar. Then,
+                        if you’re missing ingredients, you can use Google Maps to find the nearest grocery store. </p>
+                </div>
+                <div class="col-md-4">
+                    <h6 class="heading">Motivation</h6>
+                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo,
+                        tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem
+                        malesuada magna mollis euismod. Donec sed odio dui. </p>
+                </div>
+                <div class="col-md-4">
+                    <h6 class="heading">Results</h6>
+                    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum
+                        id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                        condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                </div>
+            </div> <!-- .row -->
+
+            <hr class="my-3">
+
+            <div class="p-3 rounded box-shadow self-bg-transparent">
+                <h6 class="border-bottom large border-gray heading pb-2 mb-1">Challenges and Improvements</h6>
+                <div class="media pt-3">
+                    <div class="input-color">
+                        <div class="color-box" style="background-color: darkblue;"></div>
+                    </div>
+                    <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
+                        <strong class="d-block text-gray-dark">@Pierce</strong>
+                        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo,
+                        tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+                    </p>
+                </div>
+                <div class="media pt-3">
+                    <div class="input-color">
+                        <div class="color-box" style="background-color: palevioletred;"></div>
+                    </div>
+                    <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
+                        <strong class="d-block text-gray-dark">@Lindsey</strong>
+                        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo,
+                        tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+                    </p>
+                </div>
+                <div class="media pt-3">
+                    <div class="input-color">
+                        <div class="color-box" style="background-color: purple;"></div>
+                    </div>
+                    <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
+                        <strong class="d-block text-gray-dark">@Elvin</strong>
+                        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo,
+                        tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+                    </p>
+                </div>
+                <div class="media pt-3">
+                    <div class="input-color">
+                        <div class="color-box" style="background-color: darkolivegreen;"></div>
+                    </div>
+                    <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
+                        <strong class="d-block text-gray-dark">@Anish</strong>
+                        : to utilize ingredients on hand and thereby limit food waste. If you are also don’t know what you
+                        want to
+                        make for a meal based on what you have on hand, this website can help you
+                    
+                        Results:
+                    
+                        Team efforts: we all took a full stack approach, each doing whatever might’ve been necessary at different times
+                        to
+                        complete.
+                        Anish -- frontend (page layout), table functionality with the pantry,
+                        Pierce -- API Edamam, original API (Wegman’s, shopping) didn’t work out, styling, firebase
+                        Elvin -- Javascript, Git merges, firebase
+                        Lindsey -- Google Maps API, home page, firebase
+                        Challenges: finding APIs, we first started planning in Google Docs and Trello, but had to scrap it because we
+                        couldn’t find APIs and kept switching up our vision, git merges were a huge issue that Elvin saved us on,
+                        checkbox
+                        functionality, deletion display
+                        Improvements: shopping list, parsing out the information in the recipes, favorite recipes, google maps
+                        geolocating,
+                    </p>
+                </div>
+
+            </div> <!-- .box-shadow -->
+
+        </div> <!-- .container -->
+
+
+    </div>
+
+    <div class="footer-margin mt-3">
+        <footer class="card-footer border-secondary footer">
+            <div class="row">
+                <div class="col-6">
+                    <ul>
+                        <li>About</li>
+                        <li>Our Mission</li>
+                        <li>Contact Us</li>
+                    </ul>
+                </div>
+
+                <div class="col-6">
+                    <ul>
+                        <li><img id="git" src="https://img.icons8.com/windows/64/000000/github.png">Github
+                        </li>
+                        <li><img id="twitter" src="https://img.icons8.com/ios/50/000000/twitter-filled.png">Twitter
+                        </li>
+                        <li><img id="insta"
+                                src="https://img.icons8.com/ios/100/000000/instagram-new-filled.png">Instagram
+                        </li>
+                        <li><img id="facebook" src="https://img.icons8.com/ios/50/000000/facebook-filled.png">Facebook
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="col-12">
+                    <center>
+                        <span>Copyright &copy; 2019</span>
+                    </center>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
