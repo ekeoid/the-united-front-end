@@ -14,8 +14,8 @@
 
 <body>
     <div id="wrapper">
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand px-2" href="index.html"><img src="assets/images/autochef-logo-cropped.png"></a>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand px-2" href="index.html">AutoChef</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -29,20 +29,20 @@
                     <li class="nav-item mx-1">
                         <a class="nav-link active" href="pantry.html">My Pantry</a>
                     </li>
-                    <!-- <li class="nav-item mx-1">
-                        <a class="nav-link" href="#">Favorite Recipes</a>
-                    </li> -->
                     <li class="nav-item mx-1">
-                        <a class="nav-link" href="recipes.html">Recipe Search</a>
+                        <a class="nav-link" href="recipes.html">My Recipes</a>
                     </li>
-                    <!-- <li class="nav-item mx-1">
+                    <li class="nav-item mx-1">
+                        <a class="nav-link disabled" href="#">Recipe Search</a>
+                    </li>
+                    <li class="nav-item mx-1">
                         <a class="nav-link" href="#">My Cart</a>
-                    </li> -->
+                    </li>
                 </ul>
             </div>
         </nav>
 
-        <div class="container">
+
         <div class="row">
             <div id="food-items" class="col-md-3">
                 <div class="card card-header">Items</div>
@@ -334,19 +334,14 @@
                         </div>
                         <br>
                         <button class="btn btn-primary" type="button" data-toggle="collapse"
-                            data-target="#custom-dropdown-section" aria-expanded="false"
-                            aria-controls="custom-dropdown-section">
+                            data-target="#miscellaneous-dropdown-section" aria-expanded="false"
+                            aria-controls="miscellaneous-dropdown-section">
                             Custom
                         </button>
-                        <div class="collapse" id="custom-dropdown-section">
+                        <div class="collapse" id="miscellaneous-dropdown-section">
                             <div class="card card-body">
                                 <div class="form-check">
-                                    <div class="form-group">
-                                        <label for="addCustomItem">Add Custom Item:</label>
-                                        <input type="email" class="form-control" id="addCustomItem"
-                                            placeholder="custom item">
-                                        <button id="button-add-custom-item" class="btn">Add</button>
-                                    </div>
+
                                     <!-- <input class="form-check-input" type="checkbox" value="" id="miscellaneousEntry1">
                                     <label class="form-check-label" for="miscellaneousEntry1">
                                         Miscellaneous Entry 1
@@ -358,11 +353,10 @@
                                     </label> -->
                                 </div>
                             </div>
+                        </div>
                     </p>
                 </div>
             </div>
-        </div>
-
 
             <div class="col-9">
                 <div class="card mb-4">
@@ -377,10 +371,8 @@
                                     <th scope="col">Amount</th>
                                 </tr>
                             </thead>
-                            <form id="pantryitem">
-                                <tbody>
-                                </tbody>
-                            </form>
+                            <tbody>
+                            </tbody>
                         </table>
                     </div>
                 </div>
@@ -402,65 +394,68 @@
                                             placeholder="how much you have on hand(oz (approx)" type="text">
                                     </div>
                                 </form>
-                                <button class="btn btn-success btn-submit" id="add-ingredient-btn">add to
-                                    pantry</button>
+                                <button class="btn btn-submit" id="add-ingredient-btn">add to pantry</button>
                             </div>
+                            <div class="container">
+                                <h1>Recipe Search</h1>
+                                <br>
+                                <div id="recipe-view">Recipe Choices</div>
+                                <br>
+                            </div>
+
+                            <form id="ingredient-form">
+                                <h6>Add Ingredients one at a time or multiple items separated by
+                                    a comma</h6>
+                                <label for="ingredient-input"></label>
+                                <input type="text" id="ingredient-input" placeholder="kale, chicken etc.">
+                                <br>
+
+                                <input id="search-ingredients" type="submit" value="Search for recipes">
+                            </form>
+                            <br>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
         <div class="footer-margin">
             <footer class="card-footer border-secondary footer">
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-7">
                         <ul>
                             <li>About</li>
                             <li>Our Mission</li>
                             <li>Contact Us</li>
                         </ul>
-                    </div>
-
-                    <div class="col-6">
-                        <ul>
-                            <li><img id="git" src="https://img.icons8.com/windows/64/000000/github.png">Github
-                            </li>
-                            <li><img id="twitter" src="https://img.icons8.com/ios/50/000000/twitter-filled.png">Twitter
-                            </li>
-                            <li><img id="insta"
-                                    src="https://img.icons8.com/ios/100/000000/instagram-new-filled.png">Instagram
-                            </li>
-                            <li><img id="facebook"
-                                    src="https://img.icons8.com/ios/50/000000/facebook-filled.png">Facebook
-                            </li>
-                        </ul>
-
-                    </div>
-                    <div class="col-12">
                         <span>Copyright &copy; 2019</span>
+                    </div>
+                    <div class="col-md-2">
+                        <ul>
+                            <li><img src="https://img.icons8.com/windows/64/000000/github.png">Github</li>
+                            <li><img src="https://img.icons8.com/ios/50/000000/twitter-filled.png">Twitter</li>
+                            <li><img src="https://img.icons8.com/ios/100/000000/instagram-new-filled.png">Instagram</li>
+                            <li><img src="https://img.icons8.com/ios/50/000000/facebook-filled.png">Facebook</li>
+                        </ul>
                     </div>
                 </div>
             </footer>
         </div>
-    </div>
-    <br><br><br><br>
-    <!-- jQuery library link -->
-    <script src="https://code.jquery.com/jquery-3.3.1.js"
-        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-    <!-- Bootstrap link -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-    <!-- FireBase link -->
-    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
-    <script src="assets/javascript/javascript.js"></script>
-    <script src="app.js"></script>
-    <!-- modal -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+        <!-- jQuery library link -->
+        <script src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+        <!-- Bootstrap link -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+        <!-- FireBase link -->
+        <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+        <script src="assets/javascript/javascript.js"></script>
+        <script src="app.js"></script>
 </body>
 
 </html>
