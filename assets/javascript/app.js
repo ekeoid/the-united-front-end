@@ -252,7 +252,7 @@ $("document").ready(function () {
             console.log(name + " is removed @ key: " + firebaseKey);
             database.ref(firebaseKey).remove();
         }
-        
+
         $(".ingredient ~ label:contains(" + name + ")").prev().prop("checked", false);
 
         //var ingredientToDelete = $(this).closest("tr").find(".itm").text();
@@ -317,7 +317,7 @@ $("document").ready(function () {
                 console.log("Found Cat: " + name);
                 $(".ingredient ~ label:contains(" + name + ")").prev().prop("checked", true);
             }
-            
+
 
 
             tag_button.attr("class", "close");
@@ -329,7 +329,7 @@ $("document").ready(function () {
             tag_td_c1.append(tag_button);
             tag_td_c2.append(tag_input);
             tag_td_c3.text(name);
-            tag_td_c4.text(amt + " oz");
+            // tag_td_c4.text(amt + " oz");
 
             tag_tr.append(tag_td_c1, tag_td_c2, tag_td_c3, tag_td_c4);
 
@@ -354,7 +354,7 @@ $("document").ready(function () {
                     tag_button.css("color", "green");
                 }
             }
-            
+
 
             $(".pantry-card > .list-group").append(tag_button);
         }
@@ -367,7 +367,7 @@ $("document").ready(function () {
     $(document).on("click", ".list-group-item", function () {
         var currentClasses = $(this).attr("class");
         var pantrySearch = JSON.parse(localStorage.getItem("ingredientSearch"));
-        
+
         if (pantrySearch == null)
             pantrySearch = [];
 
@@ -393,7 +393,7 @@ $("document").ready(function () {
     $(document).on("click", ".ingred-check", function () {
         var itemsToSearch = JSON.parse(localStorage.getItem("ingredientSearch"));
         var item = $(this).parent().parent().find(".itm").text();
-        
+
         if (itemsToSearch == null)
             itemsToSearch = [];
 
@@ -432,7 +432,7 @@ $("document").ready(function () {
 
         var ingredientSearch = JSON.parse(localStorage.getItem("ingredientSearch")).join();
 
-        var queryURL = "https://api.edamam.com/search?q=" + ingredientSearch + "&app_id=c43b2cf7&app_key=01c9ac7f0de42acc99556befcd0cf4c8"
+        var queryURL = "https://api.edamam.com/search?q=" + ingredientSearch + "&to=12&app_id=c43b2cf7&app_key=01c9ac7f0de42acc99556befcd0cf4c8"
 
         //function displayRecipes() {
         // Creating an AJAX call for the specific recipe button being clicked

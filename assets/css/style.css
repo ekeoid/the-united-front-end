@@ -15,6 +15,7 @@ body {
                         url("../images/purty-wood.png");
     height: 100%;
     position: relative;
+    font-family: 'Patrick Hand', cursive;
 }
 
 #wrapper {
@@ -172,31 +173,36 @@ nav{
     max-height: 125px;
 } 
 
-.card {
+/* .card {
     margin: 3% 0%;
+} */
+.col-9{
+    padding: 0;
 }
-
 #recipeDisplay{
+    padding: 0;
     margin-top: 0px;
     background: whitesmoke;
-    display: block;
+    display: inline-block;
+   
 }
 
 .recipeName{
-    height: 65px;
+    height: 100px;
 }
 
 #recView{
-    
+    padding: 0;
     display: flex;
-    justify-content: center
+    /* justify-content: center; */
 }
 
  #recipe-card{
+    justify-content: center;
     background: lightsalmon;
     display: inline-block;
-    height: 250px;
-    width: 200px;
+    height: 300px;
+    width: 198px;
     padding-top: 20px;
     border-style: solid;
     border-width: 1px;
@@ -217,6 +223,7 @@ li{
     margin: 8px;
     list-style: none;
     display:inline;
+    color: black
 }
 
 /* .footer {
@@ -253,17 +260,27 @@ li{
     width: 100%;
 }
 
+.recFoot{
+    background: rgba(255, 255, 255, .45);
+    border-top: none;
+    /* position: absolute; */
+    bottom: 0;
+    width: 100%;
+}
+
+.recFoot li:hover > img,
 .footer li:hover > img {
     transform: scale(1.2);
 } 
 
+.recFoot li > img,
 .footer li > img {
     height: 30px;
     width: 30px;
     margin-right: 5px;
 }
-
-.footer li:hover {
+.recFoot li > img,
+.footer li > img {
     font-weight: 500;
     cursor: pointer;
 } 

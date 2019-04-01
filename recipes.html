@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Patrick+Hand" rel="stylesheet">
 
 </head>
 
@@ -44,10 +45,8 @@
 
         <div class="container">
             <div class="row">
-                <div id="food-items" class="col-3">
-                    <h6 id="missing">Missing ingredients?</h6>
-                    <button id="mapsLink" onclick=" window.open('maps.html', '_blank');">Find supermarkets
-                        near you</button>
+                <div id="food-items" class="col-lg-3 col-sm-12">
+
                     <div class="card card-header">Pantry</div>
                     <div class="card card-body pantry-card">
                         <div class="list-group list-group-flush">
@@ -57,9 +56,16 @@
                         </div>
                     </div>
                     <input id="search-ingredients" class="btn" type="submit" value="Search for recipes">
+                    <br><br>
+                    <div>
+                        <h6 id="missing">Missing ingredients?</h6>
+                        <button id="mapsLink" onclick=" window.open('maps.html', '_blank');">Find supermarkets
+                            near you</button>
+                    </div>
                 </div>
 
-                <div class="col-9">
+
+                <div class="col-lg-9 col-sm-12">
                     <div class="card card-header">Recipes</div>
                     <div class="container" id="recView">
                         <div class="card card-body" id="recipeDisplay">
@@ -88,19 +94,21 @@
         </div>
     </div>
     <div class="footer-margin">
-        <footer class="card-footer border-secondary footer">
+        <footer class="card-footer border-secondary recFoot">
             <div class="row">
-                <div class="col-6">
+                <div class="col-lg-6 col-md-12 col-sm-12">
                     <ul>
-                        <li>About</li>
+                        <a href="about.html">
+                            <li>About</li>
+                        </a>
                         <li>Our Mission</li>
                         <li>Contact Us</li>
                     </ul>
                 </div>
 
-                <div class="col-6">
+                <div class="col-lg-6 col-md-12 col-sm-12">
                     <ul>
-                        <li><img id="git" src="https://img.icons8.com/windows/64/000000/github.png">Github
+                        <li><img id=" git" src="https://img.icons8.com/windows/64/000000/github.png">Github
                         </li>
                         <li><img id="twitter" src="https://img.icons8.com/ios/50/000000/twitter-filled.png">Twitter
                         </li>
