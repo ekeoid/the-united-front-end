@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Patrick+Hand" rel="stylesheet">
 
 
 </head>
@@ -50,10 +51,10 @@
 
         <div class="container">
             <div class="row">
-                <div id="food-items" class="col-md-3">
-                    <h6 id="missing">Missing ingredients?</h6>
+                <div id="food-items" class="col-lg 3 col-md-6">
+                    <!-- <h6 id="missing">Missing ingredients?</h6>
                     <button id="mapsLink" onclick=" window.open('maps.html', '_blank');">Find supermarkets
-                        near you</button>
+                        near you</button> -->
                     <div class="card card-header">Items</div>
                     <div class="card card-body categories-card">
 
@@ -61,7 +62,8 @@
 
                     </div>
                 </div>
-                <div class="col 9">
+                <br>
+                <div class="col">
                     <div class="card mb-4">
                         <div class="card-header">Pantry</div>
                         <div class="card card-body">
@@ -71,7 +73,7 @@
                                         <th scope="col">Delete Item</th>
                                         <th scope="col">Search</th>
                                         <th scope="col">Pantry Item</th>
-                                        <th scope="col">Amount</th>
+                                        <!-- <th scope="col">Amount</th> -->
                                     </tr>
                                 </thead>
                                 <form id="pantryitem">
@@ -87,28 +89,36 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <!-- Entry Form  -->
-                        <div class="card mb-4">
-                            <div class="card-header">Add Ingredients To Your Pantry</div>
-                            <div class="card-body">
-                                <form>
-                                    <div class="form-group">
-                                        <label for="ingredient-name-input">Ingredient Name</label>
-                                        <input class="form-control" id="ingredient-name-input"
-                                            placeholder="add a single ingredient" type="text">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="amount-input">Amount(optional) </label>
-                                        <input class="form-control" id="amount-input"
-                                            placeholder="how much you have (oz)?" type="text">
-                                    </div>
-                                </form>
-                                <button class="btn btn-success btn-submit" id="add-ingredient-btn">Add to Your
-                                    Pantry</button>
-                            </div>
+
+
+                <div class="col">
+                    <!-- <div class="row"> -->
+                    <!-- Entry Form  -->
+                    <div class="card mb-4">
+                        <div class="card-header">Add Ingredients To Your Pantry</div>
+                        <div class="card-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="ingredient-name-input">Ingredient Name</label>
+                                    <input class="form-control" id="ingredient-name-input"
+                                        placeholder="add a single ingredient" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label for="amount-input">Amount(optional) </label>
+                                    <input class="form-control" id="amount-input" placeholder="how much you have (oz)?"
+                                        type="text">
+                                </div>
+                            </form>
+                            <button class="btn btn-success btn-submit" id="add-ingredient-btn">Add to Your
+                                Pantry</button>
                         </div>
+                    </div>
+                    <br>
+                    <div>
+                        <h6 id="missing">Missing ingredients?</h6>
+                        <button id="mapsLink" onclick=" window.open('maps.html', '_blank');">Find supermarkets
+                            near you</button>
+                        <!-- </div> -->
                     </div>
                 </div>
             </div>
@@ -118,17 +128,20 @@
     <div class="footer-margin">
         <footer class="card-footer border-secondary footer">
             <div class="row">
-                <div class="col-6">
+                <div class="col-lg-6 col-md-12 col-sm-12">
                     <ul>
-                        <li>About</li>
+                        <a href="about.html">
+                            <li>About</li>
+                        </a>
                         <li>Our Mission</li>
                         <li>Contact Us</li>
                     </ul>
                 </div>
 
-                <div class="col-6">
+                <div class="col-lg-6 col-md-12 col-sm-12">
                     <ul>
-                        <li><img id="git" src="https://img.icons8.com/windows/64/000000/github.png">Github
+
+                        <li><img id=" git" src="https://img.icons8.com/windows/64/000000/github.png">Github
                         </li>
                         <li><img id="twitter" src="https://img.icons8.com/ios/50/000000/twitter-filled.png">Twitter
                         </li>
@@ -137,6 +150,7 @@
                         </li>
                         <li><img id="facebook" src="https://img.icons8.com/ios/50/000000/facebook-filled.png">Facebook
                         </li>
+
                     </ul>
 
                 </div>
@@ -148,7 +162,7 @@
             </div>
         </footer>
     </div>
-    <br><br><br><br>
+    <br><br><br><br><br><br><br><br>
     <!-- jQuery library link -->
     <script src="https://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
