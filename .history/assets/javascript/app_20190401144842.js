@@ -93,7 +93,7 @@ class Categories {
 }
 
 function loadList() { // function to contain category / ingredient addition
-    list.addCategory("Dairy, Vegetables, Fruits, Meat, Grains, Spices, Sweeteners, Fish, Alcohol, Condiments, Beverages, Snacks");
+    list.addCategory("Dairy, Vegetables, Fruits, Meat, Grains, Spices, Sweeteners, Fish, Alcohol, Condiments, Beverages, Snacks, Miscellaneous");
 
     list.addLink("Dairy", "assets/images/dairy-icon.png");
     list.addLink("Vegetables", "assets/images/vegetables-icon.png");
@@ -108,18 +108,19 @@ function loadList() { // function to contain category / ingredient addition
     list.addLink("Beverages", "assets/images/beverages-icon.png");
     list.addLink("Snacks", "assets/images/snacks-icon.png");
 
-    list.addIngredient("Dairy", "butter, milk, yogurt, cream, cream cheese, whipped cream, ice cream, milk powder, cheese");
-    list.addIngredient("Vegetables", "onions, broccoli, basil, cucumbers, green beans, corn, potato, spinach, lettuce, cabbage, cauliflower, garlic, sweet potato, radish, pumpkin, asparagus, brussel sprouts, carrot, turnip, eggplant, peas, onions, parsnips, kale, bell pepper, beets, okra, leeks, shallots");
-    list.addIngredient("Fruits", "lemon, apple, banana, lime, strawberry, orange, pineapple, mango, guava, papaya, avocado, grapefruit, watermelon, tomato, plum, jackfruit, coconut, pear, apricot, pomegranate, cherry, blackberry, blueberry, honeydew, grape, kumquat, nectarine, persimmon, cranberry, durian, lychee, tangerine, elderberry, kiwi, peach, clementine");
-    list.addIngredient("Meat", "lamb, meatballs, goat, veal, chicken, bacon, ground beef, sausage, ham, turkey, venison, salami, pork");
-    list.addIngredient("Grains", "barley, bulgur, quinoa, farro, kasha, teff, sorghum, buckwheat, cereal, rice, pasta, flour, oats, rye, millet, bread");
+    list.addIngredient("Dairy", "butter, milk, yogurt, cream, cream cheese, whipped cream");
+    list.addIngredient("Vegetables", "onions, broccoli, basil, cucumbers, green beans, corn, potato");
+    list.addIngredient("Fruits", "lemon, apple, banana, lime, strawberry, orange, pineapple");
+    list.addIngredient("Meat", "chicken, bacon, ground beef, sausage, ham, turkey, venison, salami, pork");
+    list.addIngredient("Grains", "rice, pasta, flour, oats, rye, millet");
     list.addIngredient("Spices", "ginger, cumin, nutmeg, coriander, saffron, turmeric, garlic, paprika, cardamom, pepper, salt");
     list.addIngredient("Sweeteners", "sugar ,honey, maple syrup, brown sugar, corn syrup, molasses");
-    list.addIngredient("Fish", "cafish, tilapia, anchovy, cod, grouper, herring, snapper, haddock, barramundi, perch, bass, tuna, mahi mahi, salmon, carp, marlin, eel, sole, trout, flounder, halibut");
-    list.addIngredient("Alcohol", "ale, lager, white wine, beer, red wine, vodka, rum, whiskey, tequila, sake");
-    list.addIngredient("Condiments", "barbecue sauce, mayonnaise, mustard, ketchup, vinegar, tabasco, sriracha, oyster sauce, soy sauce, buffalo sauce");
-    list.addIngredient("Beverages", "hot chocolate, coffee, lemonade, ginger ale, chocolate milk, milk, tea, soda, juice, espresso, lassi, amazake, milkshake, smoothie");
-    list.addIngredient("Snacks", "chocolate, apple sauce, jam, peanut butter, grape jelly, jello, corn chips, potato chips, caramel, fudge, cookies, donuts, pancakes, candy, marshmellow, toffee, graham crackers, churros, scones, toaster pastry, ");
+    list.addIngredient("Fish", "tuna, mahi mahi, salmon, carp, marlin, eel, sole, trout, flounder, halibut");
+    list.addIngredient("Alcohol", "white wine, beer, red wine, vodka, rum, whiskey, tequila, sake");
+    list.addIngredient("Condiments", "mayonnaise, mustard, ketchup, vinegar, tabasco, sriracha, oyster sauce, soy sauce, buffalo sauce");
+    list.addIngredient("Beverages", "coffee, lemonade, ginger ale, chocolate milk, milk, tea, soda, juice, espresso");
+    list.addIngredient("Snacks", "chocolate, apple sauce, jam, peanut butter, grape jelly, jello, corn chips, potato chips, caramel, fudge");
+    list.addIngredient("Miscellaneous", "");
 }
 
 function printList() { // function to list all category / ingredient HTML
