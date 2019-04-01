@@ -20,20 +20,22 @@
     }
 
     .input-color .color-box {
-        width: 32px;
-        height: 32px;
+        width: 15px;
+        height: 40px;
         border-radius: 5px;
         display: inline-block;
         background-color: #fff;
         position: absolute;
-        top: 5px;
+        top: 8px;
+        left: 10px;
     }
 
     span.number {
-        background: #BBB;
+        background: #777;
+        line-height: 1.3em;
         font-size: 0.8em;
         padding: 1px;
-        width: 1.5em;
+        width: 1.4em;
     }
 
     h6.heading {
@@ -47,6 +49,19 @@
     .footer {
         background: rgba(0, 0, 0, .20);
     }
+
+    ul > .tech {
+        padding: 0;
+        margin: 0;
+        display: list-item;
+        list-style-type: square;
+        font-size: 1.1em;
+    }
+
+    .media > p {
+        font-weight: 500;
+    }
+
 </style>
 
 <body>
@@ -87,7 +102,9 @@
 
         <div class="jumbotron bg-transparent mb-0 pt-4 pb-1">
             <div class="container">
-                <h1 class="display-5">The Autochef Project</h1>
+                <h3 class="display-6"><span style="color: #999">Project #1:</span> Autochef</h3>
+                <h3 class="display-6"><span style="color: #999">Team:</span> The United Front
+                    <span style="color: #FB433B">&lt;</span>end<span style="color: #FB433B">&gt;</span></h3>
                 <p><span style="font-weight: 500"></br>The Autochef is a web application that will help you
                         decide what you can cook.</span></br></br> Take ingredients available from your pantry
                     and find suggestions of recipes to create based on the ingredients on-hand. Click
@@ -130,11 +147,17 @@
                 <div class="col-md-4">
                     <h6 class="heading">Description</h6>
                     <p> This application takes food on hand (your pantry) and adds it to a search to find
-                        recipes based on what's in your pantry. Select ingredients adding them to your 
+                        recipes based on what's in your pantry. Select ingredients adding them to your
                         pantry either from using the preselected category feature (sidebar) or enter in
                         your ingredients manually using the text field (input). Select ingredients to search
                         for recipes. Browse the queried results and if you’re missing ingredients, you can
                         use Google Maps to find the nearest grocery store. </p>
+                    <p> <strong>Results: </strong> The functionality of this application requires tracking
+                        the items the users has, and matching selected items with the Edaman API to get
+                        recipes with targeted ingredients. The matches are displayed for the user to look
+                        further into detail of the recipe. The user has the to option to browse grocery
+                        stores using the Google Maps API.
+                    </p>
                 </div>
                 <div class="col-md-4">
                     <h6 class="heading">Motivation</h6>
@@ -143,27 +166,69 @@
                         this applications.
                     </p>
                     <p><strong>Reducing food waste.</strong>  It’s tough to come up with delicious meals of things
-                        you have on hand. Once you inventory what you already own to the virtual pantry, let the 
+                        you have on hand. Once you inventory what you already own to the virtual pantry, let the
                         algorithms help utilize your items. No more produce going bad in the fridge.
                     </p>
                     <p><strong>Stress free.</strong> We get hungry and would like to cook but don't know what to
                         cook. Let the search engine find what recipes you can make with what you have on hand. No
-                        more anxiety over what to make. 
+                        more anxiety over what to make.
                     </p>
                 </div>
                 <div class="col-md-4">
-                    <h6 class="heading">Results</h6>
-                    <p>introduction -->
-                            why we create / mission
-                            who will use it / what it does
-    
-                            App Overview --> Functionality
-                            steps they take to use it
-                            what happens
-                            This requires tracking the items the users has, and matching them with recipe API’s to get a probable
-                        match. Once the suggestions of recipes are listed, the user can browse each one and identify
-                        missing ingredients, prices to fulfill recipe, and where to find the items.
-                        </p>
+                    <h6 class="heading">Minimum Viable Product</h6>
+                    <p>The MVP for this application allows the user to fill a pantry and select items to search.
+                       When the recipes are populated it would highlight the missing ingredients, and allow you
+                       to purchase with the left over cost of items from a nearby grocery store. This shopping
+                       list feature was modified to a nearby grocery stores on a map.
+                    </p>
+                </div>
+            </div> <!-- .row -->
+
+            <hr class="my-3">
+
+            <div class="row p-3 self-bg-transparent mx-1">
+                <div class="col-md-4">
+                    <h6 class="heading">Team Efforts</h6>
+                    <p style="margin-bottom: 0; font-weight: 600">The United Front<span style="color: #FB433B">&lt;</span>end<span style="color: #FB433B">&gt;</span></p>
+                    <p> Delegations during this project did not take place. Each team member volunteered to take
+                        on initial activities (like documenting, wire-framing, API access, category design) which
+                        broke out our tasks. As we progressed, members with available time would commit
+                        to assisting with troubleshooting the issues and continue with features not yet
+                        implemented.
+                    </p>
+                    <ul>
+                        <li class="tech"><a href="https://docs.google.com/document/d/1qeuSY_wKJM31jtoejgf89nao56wxGmbCpbc5CPoh9W0/edit?usp=sharing">Google Document</a></li>
+                        <li class="tech"><a href="https://trello.com/b/oLrTwktx/the-united-front-end">Trello</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h6 class="heading">Individual Efforts</h6>
+                    <p> <strong style="margin-right: 0.4em; color: crimson">@Anish</strong>
+                        Page layout, Category layout, Panty layout
+                    </p>
+                    <p> <strong style="margin-right: 0.4em; color: crimson">@Elvin</strong>
+                        Organization, Firebase, Local storage, Javascript interactivity, Git merges
+                    </p>
+                    <p> <strong style="margin-right: 0.4em; color: crimson">@Lindsey</strong>
+                        Wireframing, Home page design, API (Google Maps), Firebase, Local storage
+                    </p>
+                    <p> <strong style="margin-right: 0.4em; color: crimson">@Pierce</strong>
+                        Ajax, APIs  (Edamam, Wegmans, Recipe Puppy, TheMealDB, Food2Fork), Firebase, Uniform Styling
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <h6 class="heading">Technologies Used</h6>
+                    <ul>
+                        <li class="tech"><a href="https://developer.mozilla.org/en-US/docs/Web/HTML">HTML</a> / <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a></li>
+                        <li class="tech"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">JavaScript</a></li>
+                        <li class="tech"><a href="https://getbootstrap.com/docs/4.1/getting-started/introduction/">Bootstrap</a></li>
+                        <li class="tech"><a href="https://api.jquery.com/">jQuery</a></li>
+                        <li class="tech"><a href="https://firebase.google.com/docs/">Google Firebase</a></li>
+                        <li class="tech"><a href="https://sweetalert.js.org/docs/">Sweet Alert</a></li>
+                        <li class="tech"><a href="https://developer.edamam.com/edamam-recipe-api">Edamam API</a></li>
+                        <li class="tech"><a href="https://developers.google.com/maps/documentation/">Google Maps API</a></li>
+
+                    </ul>
                 </div>
             </div> <!-- .row -->
 
@@ -171,63 +236,189 @@
 
             <div class="p-3 rounded box-shadow self-bg-transparent">
                 <h6 class="border-bottom large border-gray heading pb-2 mb-1">Challenges and Improvements</h6>
-                <div class="media pt-3">
-                    <div class="input-color">
-                        <div class="color-box" style="background-color: darkblue;"></div>
-                    </div>
-                    <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
-                        <strong class="d-block text-gray-dark">@Pierce</strong>
-                        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo,
-                        tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+
+                <div class="media pt-3"> <!-- Legend -->
+                    <p class="border-bottom border-gray" style="height: 30px;">
+
+                        <div class="input-color">
+                        <div class="color-box" style="background-color: darkblue; height: 20px; width: 20px; top: 2px;"></div>
+                        </div><span style="margin-right: 60px">General</span>
+                        <div class="input-color">
+                        <div class="color-box" style="background-color: purple; height: 20px; width: 20px; top: 2px;"></div>
+                        </div><span style="margin-right: 60px">Challenge</span>
+                        <div class="input-color">
+                        <div class="color-box" style="background-color: darkolivegreen; height: 20px; width: 20px; top: 2px;"></div>
+                        </div><span style="margin-right: 60px">Improvement</span>
+
                     </p>
                 </div>
-                <div class="media pt-3">
-                    <div class="input-color">
-                        <div class="color-box" style="background-color: palevioletred;"></div>
-                    </div>
-                    <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
-                        <strong class="d-block text-gray-dark">@Lindsey</strong>
-                        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo,
-                        tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-                    </p>
-                </div>
-                <div class="media pt-3">
+
+                <div class="media pt-3"> <!-- #1 -->
                     <div class="input-color">
                         <div class="color-box" style="background-color: purple;"></div>
                     </div>
-                    <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
-                        <strong class="d-block text-gray-dark">@Elvin</strong>
-                        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo,
-                        tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+                    <p class="media-body pb-3 mb-0 border-bottom border-gray">
+                        Identifying usable APIs that meet our initial MVP. Finding recipe APIs that were free and that can return
+                        information we can use for our purpose was challenging. Different sites return different object data
+                        structures. It takes time to go through and experiment with each of the data and potential using up
+                        query limits with free API accounts. Also, with food or grocery APIs, we could not register to obtain
+                        an access key with any store, either with high cost, unavailable or wait period.
                     </p>
                 </div>
-                <div class="media pt-3">
+
+                <div class="media pt-3"> <!-- #2 -->
+                    <div class="input-color">
+                        <div class="color-box" style="background-color: purple;"></div>
+                    </div>
+                    <p class="media-body pb-3 mb-0 border-bottom border-gray">
+                        Changing API from food or grocery, meant changing our initial vision. Time wasted searching for various
+                        stores and we had to be firm instead of constantly hoping or waiting for a response. Based on the initial
+                        vision to build out a shopping list, the user would just manually search for a local grocery store using
+                        Google Maps API.
+                    </p>
+                </div>
+
+                <div class="media pt-3"> <!-- #3 -->
+                    <div class="input-color">
+                        <div class="color-box" style="background-color: darkblue;"></div>
+                    </div>
+                    <p class="media-body pb-3 mb-0 border-bottom border-gray">
+                        Project #1 has a fast time line. Balancing time was a challenge in deciding to spend time refactoring
+                        code or just trying to meet the minimum viable product. Reorganizing code helps with logical thinking
+                        and connecting interaction.
+                    </p>
+                </div>
+
+                <div class="media pt-3"> <!-- #4 -->
+                    <div class="input-color">
+                        <div class="color-box" style="background-color: purple;"></div>
+                    </div>
+                    <p class="media-body pb-3 mb-0 border-bottom border-gray">
+                        Uniform styling is challenging. Each of us created our own CSS to help with building pages and
+                        features, and merging is not just as simple as adding all the code together. We each think about
+                        style coding differently, some tagging general selectors and some very specific. This created
+                        style conflicts which made us reassess page layout.
+                    </p>
+                </div>
+
+                <div class="media pt-3"> <!-- #5 -->
+                    <div class="input-color">
+                        <div class="color-box" style="background-color: darkblue;"></div>
+                    </div>
+                    <p class="media-body pb-3 mb-0 border-bottom border-gray">
+                        Project planning and documentation was a challenging. We initially began with a Google Document
+                        to collaborative align on all functionality of the site. We started adding these details to a
+                        Trello board to break up features to help with status tracking and self-delegations, but
+                        maintaining all this information in a short time frame was tough.
+                    </p>
+                </div>
+
+                <div class="media pt-3"> <!-- #6 -->
+                    <div class="input-color">
+                        <div class="color-box" style="background-color: purple;"></div>
+                    </div>
+                    <p class="media-body pb-3 mb-0 border-bottom border-gray">
+                        Use of checkboxes were a challenge. This element is composed of input and label tags and
+                        selecting and targeting these at different sections on a page was complex. Sometimes they are
+                        in a table and sometimes nested in other parent elements.  One of the trickiest problems
+                        involved deleting items in all areas from an action, HTML Display, Firebase, and variable.
+                        Each had to be specifically targeted.
+                    </p>
+                </div>
+
+                <div class="media pt-3"> <!-- #7 -->
+                    <div class="input-color">
+                        <div class="color-box" style="background-color: purple;"></div>
+                    </div>
+                    <p class="media-body pb-3 mb-0 border-bottom border-gray">
+                        When clicking between pages, we wanted the information to be persistent. However, it was more
+                        than just a list. It was tracking each item that selected and each item on-hand compared to
+                        the default category list. Making those updates during the page loads was tricky.
+                    </p>
+                </div>
+
+
+                <div class="media pt-3"> <!-- #8 -->
+                    <div class="input-color">
+                        <div class="color-box" style="background-color: darkblue;"></div>
+                    </div>
+                    <p class="media-body pb-3 mb-0 border-bottom border-gray">
+                        At this time, Git branching, pushing and merging is still a mystery. We learned a lot about it
+                        but some of the errors and resolving the conflicts are bewildering. Why this is a challenge,
+                        none of us are confident to just make changes / branches to understand the intention of all
+                        conflicts.
+                    </p>
+                </div>
+
+                <div class="media pt-3"> <!-- #9 -->
                     <div class="input-color">
                         <div class="color-box" style="background-color: darkolivegreen;"></div>
                     </div>
-                    <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
-                        <strong class="d-block text-gray-dark">@Anish</strong>
-                        : 
+                    <p class="media-body pb-3 mb-0 border-bottom border-gray">
+                        Shopping list
+                    </p>
+                </div>
 
-                        Results:
+                <div class="media pt-3"> <!-- #10 -->
+                    <div class="input-color">
+                        <div class="color-box" style="background-color: darkolivegreen;"></div>
+                    </div>
+                    <p class="media-body pb-3 mb-0 border-bottom border-gray">
+                        Missing ingredients
+                    </p>
+                </div>
 
-                        Team efforts: we all took a full stack approach, each doing whatever might’ve been necessary at
-                        different times
-                        to
-                        complete.
-                        Anish -- frontend (page layout), table functionality with the pantry,
-                        Pierce -- API Edamam, original API (Wegman’s, shopping) didn’t work out, styling, firebase
-                        Elvin -- Javascript, Git merges, firebase
-                        Lindsey -- Google Maps API, home page, firebase
-                        Challenges: finding APIs, we first started planning in Google Docs and Trello, but had to scrap
-                        it because we
-                        couldn’t find APIs and kept switching up our vision, git merges were a huge issue that Elvin
-                        saved us on,
-                        checkbox
-                        functionality, deletion display
-                        Improvements: shopping list, parsing out the information in the recipes, favorite recipes,
-                        google maps
-                        geolocating,
+                <div class="media pt-3"> <!-- #11 -->
+                    <div class="input-color">
+                        <div class="color-box" style="background-color: darkolivegreen;"></div>
+                    </div>
+                    <p class="media-body pb-3 mb-0 border-bottom border-gray">
+                        Pricing ingredients
+                    </p>
+                </div>
+
+                <div class="media pt-3"> <!-- #12 -->
+                    <div class="input-color">
+                        <div class="color-box" style="background-color: darkolivegreen;"></div>
+                    </div>
+                    <p class="media-body pb-3 mb-0 border-bottom border-gray">
+                         Parsing out information in recipes
+                    </p>
+                </div>
+
+                <div class="media pt-3"> <!-- #13 -->
+                    <div class="input-color">
+                        <div class="color-box" style="background-color: darkolivegreen;"></div>
+                    </div>
+                    <p class="media-body pb-3 mb-0 border-bottom border-gray">
+                        Favoriting recipes
+                    </p>
+                </div>
+
+                <div class="media pt-3"> <!-- #14 -->
+                    <div class="input-color">
+                        <div class="color-box" style="background-color: darkolivegreen;"></div>
+                    </div>
+                    <p class="media-body pb-3 mb-0 border-bottom border-gray">
+                        Geolocations
+                    </p>
+                </div>
+
+                <div class="media pt-3"> <!-- #15 -->
+                    <div class="input-color">
+                        <div class="color-box" style="background-color: darkolivegreen;"></div>
+                    </div>
+                    <p class="media-body pb-3 mb-0 border-bottom border-gray">
+                        Multiple Users
+                    </p>
+                </div>
+
+                <div class="media pt-3"> <!-- #16 -->
+                    <div class="input-color">
+                        <div class="color-box" style="background-color: darkolivegreen;"></div>
+                    </div>
+                    <p class="media-body pb-3 mb-0 border-bottom border-gray">
+                        Multiple APIs and Query algorithm
                     </p>
                 </div>
 
