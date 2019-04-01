@@ -204,7 +204,7 @@
                 <div class="col-md-4">
                     <h6 class="heading">Individual Efforts</h6>
                     <p> <strong style="margin-right: 0.4em; color: crimson">@Anish</strong>
-                        Page layout, Category layout, Panty layout
+                        Page layout, Category layout, Pantry layout
                     </p>
                     <p> <strong style="margin-right: 0.4em; color: crimson">@Elvin</strong>
                         Organization, Firebase, Local storage, Javascript interactivity, Git merges
@@ -355,7 +355,9 @@
                         <div class="color-box" style="background-color: darkolivegreen;"></div>
                     </div>
                     <p class="media-body pb-3 mb-0 border-bottom border-gray">
-                        Shopping list
+                        <strong>Missing ingredients: </strong>Based on what is in your pantry, this list should filter what
+                        items are needed in the recipe. Highlight them and be able to see and extract the missing items.
+                        Depending on the API, a lot of string processing is required here. 
                     </p>
                 </div>
 
@@ -364,7 +366,8 @@
                         <div class="color-box" style="background-color: darkolivegreen;"></div>
                     </div>
                     <p class="media-body pb-3 mb-0 border-bottom border-gray">
-                        Missing ingredients
+                        <strong>Shopping list: </strong>Once the missing ingredients are identified, these items can be 
+                        added to separate list. It can summarize all the items the user needs to obtain for shopping.
                     </p>
                 </div>
 
@@ -373,7 +376,9 @@
                         <div class="color-box" style="background-color: darkolivegreen;"></div>
                     </div>
                     <p class="media-body pb-3 mb-0 border-bottom border-gray">
-                        Pricing ingredients
+                        <strong>Pricing ingredients: </strong>The missing items are extracted, and then these items can be
+                        queried against a Grocery Store API to determine the local pricing. This was our initial intent in 
+                        the app design, however without an API it was difficult to test the difficulty.
                     </p>
                 </div>
 
@@ -382,7 +387,9 @@
                         <div class="color-box" style="background-color: darkolivegreen;"></div>
                     </div>
                     <p class="media-body pb-3 mb-0 border-bottom border-gray">
-                         Parsing out information in recipes
+                         <strong>Parsing out information in recipes: </strong>Almost every recipe has information of the 
+                        item from a source location. Parsing the information would give users description of the work 
+                        involved and potentially modal view the item without needing to go to a different site.
                     </p>
                 </div>
 
@@ -391,7 +398,8 @@
                         <div class="color-box" style="background-color: darkolivegreen;"></div>
                     </div>
                     <p class="media-body pb-3 mb-0 border-bottom border-gray">
-                        Favoriting recipes
+                        <strong>Favoriting recipes: </strong>An added feature for users to bookmark specific recipes. 
+                        This can be done by tracking the source site and API Unique ID.
                     </p>
                 </div>
 
@@ -400,7 +408,9 @@
                         <div class="color-box" style="background-color: darkolivegreen;"></div>
                     </div>
                     <p class="media-body pb-3 mb-0 border-bottom border-gray">
-                        Geolocations
+                        <strong>Geolocations: </strong>Currently the grocery store finder needs to manually enter the 
+                        location you are at. With geolocation, the browser can detect your current location and with 
+                        1-click automatically show you nearby stores.
                     </p>
                 </div>
 
@@ -409,7 +419,8 @@
                         <div class="color-box" style="background-color: darkolivegreen;"></div>
                     </div>
                     <p class="media-body pb-3 mb-0 border-bottom border-gray">
-                        Multiple Users
+                        <strong>Multiple Users: </strong>Multiple Users: Different people can track their own pantry 
+                        items, favorite recipes. 
                     </p>
                 </div>
 
@@ -418,7 +429,9 @@
                         <div class="color-box" style="background-color: darkolivegreen;"></div>
                     </div>
                     <p class="media-body pb-3 mb-0 border-bottom border-gray">
-                        Multiple APIs and Query algorithm
+                        <strong>Multiple APIs and Query algorithm: </strong>Gather information from other sources to help 
+                        user make choices. An algorithm can track intrests between the different sources to show more 
+                        popular results.
                     </p>
                 </div>
 
