@@ -108,10 +108,10 @@ function loadList() { // function to contain category / ingredient addition
     list.addLink("Beverages", "assets/images/beverages-icon.png");
     list.addLink("Snacks", "assets/images/snacks-icon.png");
 
-    list.addIngredient("Dairy", "butter, milk, yogurt, cream, cream cheese, whipped cream, ice cream, milk powder, cheese");
+    list.addIngredient("Dairy", "butter, milk, yogurt, cream, cream cheese, whipped cream");
     list.addIngredient("Vegetables", "onions, broccoli, basil, cucumbers, green beans, corn, potato, spinach, lettuce, cabbage, cauliflower, garlic, sweet potato, radish, pumpkin, asparagus, brussel sprouts, carrot, turnip, eggplant, peas, onions, parsnips, kale, bell pepper, beets, okra, leeks, shallots");
     list.addIngredient("Fruits", "lemon, apple, banana, lime, strawberry, orange, pineapple, mango, guava, papaya, avocado, grapefruit, watermelon, tomato, plum, jackfruit, coconut, pear, apricot, pomegranate, cherry, blackberry, blueberry, honeydew, grape, kumquat, nectarine, persimmon, cranberry, durian, lychee, tangerine, elderberry, kiwi, peach, clementine");
-    list.addIngredient("Meat", "lamb, meatballs, goat, veal, chicken, bacon, ground beef, sausage, ham, turkey, venison, salami, pork");
+    list.addIngredient("Meat", "chicken, bacon, ground beef, sausage, ham, turkey, venison, salami, pork");
     list.addIngredient("Grains", "barley, bulgur, quinoa, farro, kasha, teff, sorghum, buckwheat, cereal, rice, pasta, flour, oats, rye, millet, bread");
     list.addIngredient("Spices", "ginger, cumin, nutmeg, coriander, saffron, turmeric, garlic, paprika, cardamom, pepper, salt");
     list.addIngredient("Sweeteners", "sugar ,honey, maple syrup, brown sugar, corn syrup, molasses");
